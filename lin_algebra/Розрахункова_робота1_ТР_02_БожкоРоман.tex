@@ -2,6 +2,7 @@
 \usepackage[english, ukrainian]{babel}
 \usepackage{amsmath}
 \usepackage{systeme}
+\usepackage{amssymb}
 
 %%%%%%%%%%%%%%%%%%
 % Counter block
@@ -99,8 +100,11 @@
 \section{Завдання №5}
 \begin{equation}\label{eq5}\begin{split}
 	& \sysdelim\{.\systeme{3x_1 + 2x_2 + 2x_3 + 2x_4=2, 2x_1 + 3x_2 + 2x_3 + 5x_4 = 3, 9x_1 + x_2 + 4x_3 - 5x_4 = 1, 2x_1 + 2x_2 + 3x_3 + 4x_4 = 5, 7x_1 + x_2 + 6x_3 - x_4 = 7\quad} \to \tilde A = \begin{pmatrix}3 & 2 & 2 & 2 & 2\\ 2 & 3 & 2 & 5 & 3\\ 9 & 1 & 4 & -5 & 1\\ 2 & 2 & 3 & 4 & 5\\7 & 1 & 6 & -1 & 7\end{pmatrix} \labelrel\sim{eq5:step_one} \begin{pmatrix}1 & -1 & 0 & -3 & -1\\ 2 & 3 & 2 & 5 & 3\\ 9 & 1 & 4 & -5 & 1\\ 2 & 2 & 3 & 4 & 5\\7 & 1 & 6 & -1 & 7\end{pmatrix} \labelrel\sim{eq5:step_two} \\
-	&
+	& \begin{pmatrix}1 & -1 & 0 & -3 & -1\\ 0 & 5 & 2 & 11 & 5\\ 0 & 10 & 4 & 22 & 10\\ 0 & 4 & 3 & 10 & 7\\0 & 8 & 6 & 20 & 14\end{pmatrix} \labelrel\sim{eq5:step_three} \begin{pmatrix}1 & -1 & 0 & -3 & -1\\0 & 5 & 2 & 11 & 5\\ 0 & 4 & 3 & 10 & 7\end{pmatrix} \labelrel\sim{eq5:step_four} \begin{pmatrix}1 & -1 & 0 & -3 & -1\\ 0 & 1 & -1 & 1 & -2\\ 0 & 4 & 3 & 10 & 7\end{pmatrix} \labelrel\sim{eq5:step_five} \\
+	& \begin{pmatrix}1 & -1 & 0 & -3 & -1\\ 0 & 1 & -1 & 1 & -2\\ 0 & 0 & 7 & 6 & 15\end{pmatrix} \to \sysdelim\{.\systeme{x_1 - x_2 - 3x_4=-1, x_2 - x_3 + x_4 = -2, 7x_3 + 6x_4 = 15\quad} \labelrel\to{eq5:vars_type} \\
+	& \sysdelim\{.\systeme{x_1 = -3 + \frac{1}{7}(15 - 6x_4) - x_4 + 3x_4, x_2 = -2 + \frac{1}{7}(15 - 6x_4) - x_4, x_3 = \frac{1}{7}(15 - 6x_4), x_4 = C\mbox{, }C\in\mathbb{R}\quad} \\
+	& \mbox{Відповідь: } x_1 = \frac{(-6 + 8C)}{7}, x_2 = \frac{(1 - 13C)}{7}, x_3 = \frac{(15 - 6C)}{7}, x_4 = C\mbox{, }C\in\mathbb{R}
 \end{split}\end{equation}
 В кроці~\eqref{eq5:conj_multp} вираз був домножений на спряжений.
-
+1/7-
 \end{document}
