@@ -25,7 +25,7 @@
 
 \begin{document}
 
-\title{Лінайна алгебра і аналітична геометрія\linebreak Розрахункова робота №1}
+\title{Лінійна алгебра і аналітична геометрія\linebreak Розрахункова робота №1}
 \author{Божко Роман Вячеславович, TP-02}
 \date{\today}
 
@@ -33,36 +33,10 @@
 
 \section{Завдання №1}
 \begin{equation}\begin{split}\label{eq1}
-& 1)	\begin{vmatrix}
-	2 & 0 & 5 \\
-	0 & -1 & 10 \\
-	1 & 3 & 16
-	\end{vmatrix} = 2 * (-1) * 16 +- (5 * 1 * (-1) + 3 * 2 * 10) = -87 \\
-& 2) \begin{vmatrix}
-	2 & 0 & 5 \\
-	0 & -1 & 10 \\
-	1 & 3 & 16 
-	\end{vmatrix}
-	\begin{matrix}
-	2 & 0 \\
-	0 & -1 \\
-	1 & 3 \\
-	\end{matrix} = 2 * (-1) * 16 +- (5 * 1 * (-1) + 3 * 2 * 10) = -87 \\
-& 3)	\begin{vmatrix}
-	2 & 0 & 5 \\
-	0 & -1 & 10 \\
-	1 & 3 & 16
-	\end{vmatrix} = 2 * \begin{vmatrix}-1 & 10 \\ 3 & 16\end{vmatrix} - 0 * \begin{vmatrix}0 & 5 \\ 3 & 16\end{vmatrix} + 1 * \begin{vmatrix}0 & 5 \\ -1 & 10\end{vmatrix} = 2 * (-46) + 5 = -87 \\
-& 4) \begin{vmatrix}
-	2 & 0 & 5 \\
-	0 & -1 & 10 \\
-	1 & 3 & 16
-	\end{vmatrix} \labelrel={eq1:zero_forming}
-	\begin{vmatrix}
-	0 & -6 & -27 \\
-	0 & -1 & 10 \\
-	1 & 3 & 16
-	\end{vmatrix} = 1 * \begin{vmatrix}-6 & -27 \\ -1 & 10\end{vmatrix} = -60 - 27 = -87
+& \mbox{а) }\begin{vmatrix}2 & 0 & 5 \\0 & -1 & 10 \\1 & 3 & 16\end{vmatrix} = 2 * (-1) * 16 +- (5 * 1 * (-1) + 3 * 2 * 10) = -87 \\
+& \mbox{б) }\begin{vmatrix}2 & 0 & 5 \\0 & -1 & 10 \\1 & 3 & 16\end{vmatrix}\begin{matrix}2 & 0 \\0 & -1 \\1 & 3 \\\end{matrix} = 2 * (-1) * 16 +- (5 * 1 * (-1) + 3 * 2 * 10) = -87 \\
+& \mbox{в) }\begin{vmatrix}2 & 0 & 5 \\0 & -1 & 10 \\1 & 3 & 16\end{vmatrix} = 2 * \begin{vmatrix}-1 & 10 \\ 3 & 16\end{vmatrix} - 0 * \begin{vmatrix}0 & 5 \\ 3 & 16\end{vmatrix} + 1 * \begin{vmatrix}0 & 5 \\ -1 & 10\end{vmatrix} = 2 * (-46) + 5 = -87 \\
+& \mbox{г) }\begin{vmatrix}2 & 0 & 5 \\0 & -1 & 10 \\1 & 3 & 16\end{vmatrix} \labelrel={eq1:zero_forming} \begin{vmatrix}0 & -6 & -27 \\0 & -1 & 10 \\1 & 3 & 16\end{vmatrix} = 1 * \begin{vmatrix}-6 & -27 \\ -1 & 10\end{vmatrix} = -60 - 27 = -87
 \end{split}\end{equation}
 В кроці~\eqref{eq1:zero_forming} від першого рядка був віднятий 3-й рядок помножений на 2.
 
@@ -85,17 +59,21 @@
 	& 2) AX = B, X = A^{-1}B = \frac{1}{-79}\begin{pmatrix}-11 & -8 & -6\\ -42 & -9 & 13\\ 8 & 13 & -10\end{pmatrix}\begin{pmatrix} 3 \\ 5 \\ 1\end{pmatrix} = \begin{pmatrix} 1 \\ 2 \\ -1\end{pmatrix} \\
 	& 3)  \tilde A = \begin{pmatrix}1 & 2 & 2 & 3\\ 4 & -2 & -5 & 5\\ 6 & -1 & 3 & 1\end{pmatrix} \labelrel\sim{eq3:step_one} \begin{pmatrix}1 & 2 & 2 & 3\\ 0 & -10 & -13 & -7\\ 0 & -13 & -9 & -17\end{pmatrix} \labelrel\sim{eq3:step_two}  \begin{pmatrix}1 & 2 & 2 & 3\\ 0 & -10 & -13 & -7\\ 0 & 0 & -79 & -79\end{pmatrix} \to \\
 & \sysdelim\{.\systeme{x_1 + 2x_2 + 2x_3=3, -10x_2 - 13x_3 = -7, 79x_3 = -79\quad} \to x_1 = 1, x_2 = 2, x_3 = -1 \\
-& \mbox{Перевірка}: \begin{pmatrix}1 & 2 & 2 \\ 4 & -2 & -5 \\ 6 & -1 & 3\end{pmatrix}\begin{pmatrix} 1 \\ 2 \\ -1\end{pmatrix} = \begin{pmatrix} 3 \\ 5 \\ 1\end{pmatrix}
+& \mbox{Перевірка}: \begin{pmatrix}1 & 2 & 2 \\ 4 & -2 & -5 \\ 6 & -1 & 3\end{pmatrix}\begin{pmatrix} 1 \\ 2 \\ -1\end{pmatrix} = \begin{pmatrix} 3 \\ 5 \\ 1\end{pmatrix} = B
 \end{split}\end{equation}
 В кроці~\eqref{eq3:step_one} від 2-го рядочка було віднято перший помноженний на 4, від 3-го рядочка було віднятий перший помноженний на 6.
 В кроці~\eqref{eq3:step_two} від 3-го рядочка помноженного на 10 було віднято другий помноженний на 13.
 
 \section{Завдання №4}
 \begin{equation}\label{eq4}\begin{split}
-	& \lim_{x \to -1} \frac{\left( x^{2} + 3x + 2 \right)^{2}}{x^{3} + 2x^{2} - x - 2} = [\frac{0}{0}] = \lim_{x \to -1} \frac{\left((x + 1)(x + 2)\right)^{2}}{(x + 1)(x^{2} + x - 2)} \labelrel={eq4:open_brackets} \lim_{x \to -1} \frac{(x + 1)^{2}(x + 2)^{2}}{(x + 1)(x^{2} + x - 2)} = \\
-	& \lim_{x \to -1} \frac{(x + 1)(x + 2)^{2}}{x^{2} + x - 2} = \lim_{x \to -1} \frac{(x + 1)(x + 2)^{2}}{(x - 1)(x + 2)} =  \lim_{x \to -1} \frac{(x + 1)(x + 2)}{x - 1} = \frac{0 * 1}{-2} = 0
+	& A =\begin{pmatrix}2 & -1\\0 & 5\end{pmatrix}, B =\begin{pmatrix}-3 & 4\\5 & 2\end{pmatrix}, C =\begin{pmatrix}1 & 8\\4 & -7\end{pmatrix}, D =\begin{pmatrix}1 & -3\\-4 & 0\end{pmatrix} \\
+	& \mbox{a) }BCX = 2D + A, BC = F = \begin{pmatrix}13 & -52\\13 & 26\end{pmatrix}, 2D + A = G = \begin{pmatrix}4 & -32\\-16 & 8\end{pmatrix}  \\
+& FX = G, X = F^{-1}G, F^{-1} = \frac{1}{1014}\begin{pmatrix}26 & -13\\52 & 13\end{pmatrix}^{T} = \frac{13}{1014}\begin{pmatrix}2 & 4\\-1 & 1\end{pmatrix} \\
+& X = F^{-1}G = \frac{13}{1014}\begin{pmatrix}2 & 4\\-1 & 1\end{pmatrix}\begin{pmatrix}4 & -32\\-16 & 8\end{pmatrix} = \frac{52}{1014}\begin{pmatrix}-14 & -8\\-5 & 10\end{pmatrix} \\
+	& \mbox{б) }DXA=B-C, B-C=F=\begin{pmatrix}-4 & -4\\1 & 9\end{pmatrix}, X = D^{-1}FA^{-1} \\
+& D^{-1}F = G = \frac{1}{-12}\begin{pmatrix}0 & 3\\4 & 1\end{pmatrix}\begin{pmatrix}-4 & -4\\1 & 9\end{pmatrix} = \frac{1}{-12}\begin{pmatrix}3 & 27\\-15 & -7\end{pmatrix}\\
+& X = GA^{-1} = \frac{1}{-12}\begin{pmatrix}3 & 27\\-15 & -7\end{pmatrix} * \frac{1}{10}\begin{pmatrix}5 & 1\\0 & 2\end{pmatrix} = \frac{1}{120}\begin{pmatrix}15 & 57\\-75 & -29\end{pmatrix}
 \end{split}\end{equation}
-В кроці~\eqref{eq4:open_brackets} відкриваємо дужки, підносячи кожен член до квадрата.
 
 \section{Завдання №5}
 \begin{equation}\label{eq5}\begin{split}
@@ -105,6 +83,10 @@
 	& \sysdelim\{.\systeme{x_1 = -3 + \frac{1}{7}(15 - 6x_4) - x_4 + 3x_4, x_2 = -2 + \frac{1}{7}(15 - 6x_4) - x_4, x_3 = \frac{1}{7}(15 - 6x_4), x_4 = C\mbox{, }C\in\mathbb{R}\quad} \\
 	& \mbox{Відповідь: } x_1 = \frac{(-6 + 8C)}{7}, x_2 = \frac{(1 - 13C)}{7}, x_3 = \frac{(15 - 6C)}{7}, x_4 = C\mbox{, }C\in\mathbb{R}
 \end{split}\end{equation}
-В кроці~\eqref{eq5:conj_multp} вираз був домножений на спряжений.
-1/7-
+В кроці~\eqref{eq5:step_one} від 1-го рядочка було віднято другий рядок.
+В кроці~\eqref{eq5:step_two} від 2-го рядочка було віднято перший помноженний на 2. Від 3-го рядочка було віднято перший помноженний на 3. Від 4-го рядочка було віднято перший помноженний на 2. Від 5-го рядочка було віднято перший помноженний на 7.
+В кроці~\eqref{eq5:step_three} з матриці були вилучені лінійно залежні рядки.
+В кроці~\eqref{eq5:step_four} від 2-го рядочка було віднято третій.
+В кроці~\eqref{eq5:step_five} від 3-го рядочка було віднято другий помноженний на 4.
+В кроці~\eqref{eq5:vars_type} залежні змінні були виражені через вільні.
 \end{document}
