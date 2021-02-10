@@ -1,0 +1,121 @@
+\documentclass{report}
+\usepackage[english, ukrainian]{babel}
+\usepackage{amsmath}
+\usepackage{systeme}
+
+\newcounter{relctr} %% <- counter for relations
+\everydisplay\expandafter{\the\everydisplay\setcounter{relctr}{0}} %% <- reset every eq
+\renewcommand*\therelctr{\alph{relctr}} %% <- label format
+
+\newcommand\labelrel[2]{%
+  \begingroup
+    \refstepcounter{relctr}%
+    \stackrel{\textnormal{(\alph{relctr})}}{\mathstrut{#1}}%
+    \originallabel{#2}%
+  \endgroup
+}
+\AtBeginDocument{\let\originallabel\label} %% <- store original definition
+
+\begin{document}
+
+\title{Математичний аналіз II\linebreakРозрахункова робота №1}
+\author{Божко Роман Вячеславович, TP-02}
+\date{\today}
+
+\maketitle
+
+\section{Завдання №1}
+\begin{equation}\label{eq1}\end{equation}
+
+\section{Завдання №2}
+\begin{equation}\label{eq2}\begin{split}
+	\int \frac{x^{2}}{x^{6} - 1} dx = \begin{vmatrix}t = x^{3}\\dt = 3x^{2}dx\\\frac{dt}{3} = x^{2}dx\end{vmatrix} = \frac{1}{3}\int\frac{dt}{t^2 - 1} = \frac{1}{3} \cdot \frac{1}{2} \ln\left(\frac{t - 1}{t + 1}\right) + C = \frac{1}{6} \ln\left(\frac{x^3 - 1}{x^3 + 1}\right) + C
+\end{split}\end{equation}
+
+\section{Завдання №3}
+\begin{equation}\label{eq3}\begin{split}
+	\int \sin 2x \cdot e^{\cos 2x} dx = \begin{vmatrix}t = \cos 2x\\dt = -2\sin2xdx\\-\frac{dt}{2} = \sin2xdx\end{vmatrix} = -\frac{1}{2} \int e^{t} dt = -\frac{1}{2} e^{\cos 2x} + C
+\end{split}\end{equation}
+
+\section{Завдання №4}
+\begin{equation}\label{eq4}\begin{split}
+	& \int\frac{x - 1}{\sqrt{5 + 2x - x^2}}dx = \int \frac{x - 1}{\sqrt{-(x^2 - 2x - 5)}}dx = \begin{vmatrix}t = x^2 - 2x - 5\\dt = (2x - 2)dx\\\frac{dt}{2} = (x - 1)dx\end{vmatrix} = \frac{1}{2}\int\frac{dt}{\sqrt{-t}} =\\
+	& -\frac{1}{2} \cdot 2\sqrt{-t} + C = - \sqrt{5 + 2x - x^2} + C
+\end{split}\end{equation}
+
+\section{Завдання №5}
+\begin{equation}\label{eq5}\begin{split}
+	 \int (10x - 3)(5x^2 - 3x + 8)^8 dx = \begin{vmatrix}t = 5x^2 - 3x + 8\\dt = (10x - 3)dx\end{vmatrix} = \int t^8 dt = \frac{t^9}{9} + C = \frac{1}{9}(5x^2 - 3x + 8)^9 + C
+\end{split}\end{equation}
+
+\section{Завдання №6}
+\begin{equation}\label{eq6}\begin{split}
+	& \int \frac{dx}{-3x^2 + 2x - 5} = -\frac{1}{3}\int\frac{dx}{x^2 -\frac{2x}{3} + \frac{5}{3}} = -\frac{1}{3}\int\frac{dx}{x^2 - 2 \cdot x \cdot \frac{1}{3} + \frac{1}{9} - \frac{1}{9} + \frac{5}{3}} =\\
+	& -\frac{1}{3}\int\frac{dx}{\left(x - \frac{1}{3}\right)^2 + \left(\frac{\sqrt{14}}{3}\right)^2} = -\sqrt{14}\arctg\left(\frac{3x-1}{\sqrt{14}}\right) + C
+\end{split}
+\end{equation}
+
+\section{Завдання №7}
+\begin{equation}\label{eq7}
+	\lim_{x \to 0} \frac{\tg x - x}{\sin x - x^{2}} = \left[\frac{0}{0}\right] \overset{L}{=} \lim_{x \to 0} \frac{\frac{1}{\cos^{2}x} - 1}{\cos x - 2x} = 0
+\end{equation}
+
+\section{Завдання №8}
+\begin{equation}\label{eq8}\begin{split}
+	&y = x - x^{3}, x_0 = -1\\
+	&\mbox{Рівняння дотичної до графіка функції: } y - f(x_0) = f'(x_0)(x - x_0)\\
+	& f'(x) = 1 - 3x^{2}, f'(x_0) = -2, f(x_0) = 0, y =  -2x - 2\\
+	&\mbox{Рівняння нормалі до графіка функції: } y - f(x_0) = -\frac{1}{f'(x_0)}(x - x_0)\\
+	& y - 0 = -\frac{1}{-2}(x + 1), y = \frac{x + 1}{2}
+\end{split}
+\end{equation}
+
+\section{Завдання №9}
+\begin{equation}\label{eq9}\begin{split}
+	& \int\ln(x^2 + 1) dx = \begin{vmatrix}u =\ln(x^2 + 1), du = \frac{2xdx}{x^2 + 1}\\dv=dx, v = \int dx = x\end{vmatrix} = x\ln(x^2 + 1) - \int \frac{2x^2 dx}{x^2 + 1} =\\
+	& x\ln(x^2 + 1) - 2\int\frac{x^2 + 1 - 1}{x^2 + 1} dx = x\ln(x^2 + 1) - 2\left(\int dx - \int \frac{dx}{x^2 + 1}\right) =\\
+	& x\ln(x^2 + 1) - 2(x - \arctg x + C) = x(\ln(x^2 + 1) - 2) + 2\arctg x + C
+\end{split}\end{equation}
+
+\section{Завдання №10}
+\begin{equation}\begin{split}
+	& \int(x-2)\sin(\frac{x}{2})dx = \begin{vmatrix}u = x - 2, du = dx\\dv = \sin(\frac{x}{2})dx, v = \int \sin(\frac{x}{2})dx = 2\int \sin(\frac{x}{2})d(\frac{x}{2}) = -2\cos(\frac{x}{2})\end{vmatrix} =\\
+	& -2\cos(\frac{x}{2})(x - 2) - \int -2\cos(\frac{x}{2})dx = -2\cos(\frac{x}{2})(x - 2) + 2\int\cos(\frac{x}{2})dx =\\
+	&  -2\cos(\frac{x}{2})(x - 2) + 4\int\cos(\frac{x}{2})d(\frac{x}{2}) = 4\sin(\frac{x}{2}) - 2\cos(\frac{x}{2})(x - 2) + C
+\end{split}\end{equation}
+
+\section{Завдання №11}
+\begin{equation}\begin{split}
+	& \int x^2 \arctg(3x)dx
+\end{split}\end{equation}
+
+
+\section{Завдання №19}
+\begin{equation}\begin{split}
+	& \int \frac{x^2 dx}{x\sqrt{x^2 - 3}} = \int \frac{xdx}{\sqrt{x^2 - 3}} = \begin{vmatrix}t = x^2 - 3\\dt = 2xdx\\xdx = \frac{dt}{2}\end{vmatrix} = \frac{1}{2}\int\frac{dt}{\sqrt{t}} = \frac{1}{2}\cdot2\sqrt{t} + C = \sqrt{x^2 - 3} + C
+\end{split}\end{equation}
+
+\section{Завдання №21}
+\begin{equation}\begin{split}
+	& \int \cos(2x)\sin x dx=\frac{1}{2} \left(\int \sin(-x)dx + \int\sin(3x)dx)\right) = \frac{1}{2}\left(-\int\sin(x)dx + \frac{1}{3}\int\sin(3x)d(3x)\right) =\\
+	& \frac{1}{2}\cos x - \frac{1}{6} \cos(3x) + C
+\end{split}\end{equation}
+
+\section{Завдання №22}
+\begin{equation}\begin{split}
+	& \int \sin^2(5x)dx = \frac{1}{2}\int(1 - \cos (10x))dx = \frac{1}{2}(\int dx - \int\cos(10x)dx) =\\
+	& \frac{1}{2}(x - \frac{1}{10}\int\cos(10x)d(10x)) = \frac{1}{2}(x - \frac{1}{10}\sin(10x)) + C
+\end{split}\end{equation}
+
+\section{Завдання №29}
+\begin{equation}\begin{split}
+	& \int\sqrt{x^2 + 3x - 4}dx = \int\sqrt{x^2 + 2\cdot x\cdot\frac{3}{2} + \frac{9}{4} - \frac{9}{4} - \frac{16}{4}}dx = \int(\sqrt{(x + \frac{3}{2})^2 - (\frac{5}{2})^2}) dx =\\
+	& \int(\sqrt{(x + \frac{3}{2})^2 - (\frac{5}{2})^2}) d(x+\frac{3}{2}) = \frac{x + \frac{3}{2}}{2}(\sqrt{(x + \frac{3}{2})^2 - (\frac{5}{2})^2}) - \frac{25}{8}\ln\left((x + \frac{3}{2}) + \sqrt{(x + \frac{3}{2})^2 - (\frac{5}{2})^2}\right) + C
+\end{split}\end{equation}
+
+\section{Завдання №30}
+\begin{equation}\begin{split}
+	& \int\sqrt{3 - 4x - x^2}dx = \int\sqrt{7 - (x + 2)^2}dx = \int\sqrt{(\sqrt{7})^2 - (x + 2)^2}dx =\\
+	& \frac{x + 2}{2}\sqrt{7 - (x + 2)^2} + \frac{7}{2}\arcsin\left(\frac{x + 2}{\sqrt{7}}\right) + C
+\end{split}\end{equation}
+\end{document}
