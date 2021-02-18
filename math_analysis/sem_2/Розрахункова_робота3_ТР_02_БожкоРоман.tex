@@ -165,9 +165,24 @@
 \end{split}\end{equation}
 В кроці~\eqref{eq17:sqr_equa} виділяємо повний квадрат, аби привести інтеграл до табличного.
 
+\section{Завдання №18}
+\begin{equation}\label{eq18}\begin{split}
+	& \int \frac{3x + 2}{\sqrt{x^2 + x + 3}}dx = \int\frac{\frac{3}{2}d(x^2 + x + 3) + \frac{1}{2}dx}{\sqrt{x^2 + x + 3}} = \frac{3}{2}\int\frac{d(x^2 + x + 3)}{\sqrt{x^2 + x + 3}} + \frac{1}{2}\int\frac{dx}{\sqrt{x^2 + x + 3}} =\\
+	& 3\sqrt{x^2 + x + 3} + \frac{1}{2}\int\frac{dx}{\sqrt{\left(x + \frac{1}{2}\right)^2 + \left(\frac{\sqrt{11}}{2}\right)^2}} =  3\sqrt{x^2 + x + 3} + \frac{1}{2}\ln(x + \frac{1}{2} + \sqrt{x^2 + x + 3}) + C
+\end{split}\end{equation}
+
 \section{Завдання №19}
 \begin{equation}\label{eq19}\begin{split}
 	& \int \frac{x^2 dx}{x\sqrt{x^2 - 3}} = \int \frac{xdx}{\sqrt{x^2 - 3}} = \begin{vmatrix}t = x^2 - 3\\dt = 2xdx\\xdx = \frac{dt}{2}\end{vmatrix} = \frac{1}{2}\int\frac{dt}{\sqrt{t}} = \frac{1}{2}\cdot2\sqrt{t} + C = \sqrt{x^2 - 3} + C
+\end{split}\end{equation}
+
+\section{Завдання №20}
+\begin{equation}\label{eq20}\begin{split}
+	& \int\frac{x^2}{\sqrt{x^2 + 2x + 5}}dx = \int\frac{(x^2 + 2x + 5 - 2x - 5)}{\sqrt{x^2 + 2x + 5}}dx = \int\frac{\sqrt{(x^2 + 2x + 5)^2}}{\sqrt{x^2 + 2x + 5}}dx - \int\frac{2x + 5}{\sqrt{x^2 + 2x + 5}}dx =\\
+	& \int\sqrt{x^2 + 2x + 5}dx - \int\frac{d(x^2 + 2x + 5) + 3dx}{\sqrt{x^2 + 2x + 5}} =\\
+	& \int\sqrt{(x + 2)^2 + 1}d(x + 2) - \left(\int\frac{d(x^2 + 2x + 5)}{\sqrt{x^2 + 2x + 5}} + 3\int\frac{d(x + 2)}{\sqrt{(x + 2)^2 + 1}}\right) =\\
+	& \frac{x + 2}{2}\sqrt{x^2 + 2x + 5} + \frac{1}{2}\ln(x + 2 + \sqrt{x^2 + 2x + 5}) - 2\sqrt{x^2 + 2x + 5} - 3\ln(x + 2 + \sqrt{x^2 + 2x + 5}) + C =\\
+	& \frac{x-2}{2}\sqrt{x^2 + 2x + 5} - \frac{5}{2}\ln(x + 2 + \sqrt{x^2 + 2x + 5}) + C
 \end{split}\end{equation}
 
 \section{Завдання №21}
