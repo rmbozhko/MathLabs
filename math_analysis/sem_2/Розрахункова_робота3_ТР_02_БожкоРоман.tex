@@ -233,6 +233,20 @@
 В кроці~\eqref{eq26:sin_cos_tg_subst} використаємо формули для заміни $\sin$ і $\cos$ через $\tg$: $\displaystyle \sin\alpha = \frac{2\tg\frac{\alpha}{2}}{1 + \tg^2\frac{\alpha}{2}}, \cos\alpha = \frac{1 -\tg^2\frac{\alpha}{2}}{1 + \tg^2\frac{\alpha}{2}}$.
 В кроці~\eqref{eq26:sqr_equa} виділяємо повний квадрат, аби привести інтеграл до табличного.
 
+\section{Завдання №27}
+\begin{equation}\label{eq27}\begin{split}
+	& \int\frac{dx}{\sin^2 x + \tg^2 x} \labelrel={eq27:tg_deriv_sub} \int\frac{\frac{dx}{\cos^2 x}}{\left(\tg^2 x + \frac{\tg^2 x}{\cos^2 x}\right)} \labelrel={eq27:cos_sq_sub} \int\frac{\frac{dx}{\cos^2 x}}{\left(\tg^2 x + \frac{\tg^2 x}{\tg^2 x + 1}\right)} = \begin{vmatrix}t = \tg x\\dt = \frac{1}{\cos^2 x}\end{vmatrix} =\\
+	& \int\frac{dt}{t^2 + \left(\frac{t^2}{t^2 + 1}\right)} = \int\frac{dt}{\frac{t^2(t^2 + 1) + t^2}{t^2 + 1}} = \int\frac{t^2 + 1}{t^2(t^2 + 2)}dt = \int\frac{t^2 + 2 - 1}{t^2(t^2 + 2)}dt = \int\frac{dt}{t^2} - \int\frac{dt}{t^4 + 2t^2} \labelrel={eq27:unknown_coeffs} \ast \\
+	& \frac{A}{t} + \frac{B}{t^2} + \frac{Ct + D}{t^2 + 2} = \frac{1}{t^4 + 2t^2}\\
+	& A(t^3 + 2t) + B(t^2 + 2) + Ct^3 + Dt^2 = 1\\
+	& \sysdelim\{.\systeme{A + C = 0, B + D = 0, 2A= 0, 2B = 1\quad} \sysdelim\{.\systeme{C = 0, D = -\frac{1}{2}, A = 0, B = \frac{1}{2}\quad}\\
+	& \ast = \int\frac{dt}{t^2} - \frac{1}{2}\int\frac{dt}{t^2} + \frac{1}{2}\int\frac{dt}{t^2 + 2} = \frac{1}{2}\int\frac{dt}{t^2} + \frac{1}{2}\int\frac{dt}{t^2 + 2} =\\
+	& \frac{1}{2}\left(-\frac{1}{t} + \frac{1}{\sqrt{2}}\arctg\left(\frac{t}{\sqrt{2}}\right)\right) = \frac{1}{2}\left(-\frac{1}{\tg x} + \frac{1}{\sqrt{2}}\arctg\left(\frac{\tg x}{\sqrt{2}}\right)\right) + C
+\end{split}\end{equation}
+В кроці~\eqref{eq27:tg_deriv_sub} домножимо і розділимо вираз на $\frac{1}{\cos^2 x}$.
+В кроці~\eqref{eq27:cos_sq_sub} замінимо $\cos^2 x$ на $\tg^2 x + 1$.
+В кроці~\eqref{eq27:unknown_coeffs} використаємо метод невизначених коефіцієнтів.
+
 \section{Завдання №28}
 \begin{equation}\label{eq28}\begin{split}
 	& \int \frac{dx}{x\sqrt{x^2 - 1}} \labelrel={eq28:eq_general_form} \int x^{-1}(-1 + x^2)^{-\frac{1}{2}}dx = \begin{vmatrix}x^2 - 1= t^2, x^2 = t^2 + 1\\d(x^2 - 1) = d(t^2), 2xdx = 2tdt\\\frac{dx}{x} = \frac{tdt}{x^2} = \frac{tdt}{t^2 + 1}\end{vmatrix} =\\
