@@ -34,22 +34,26 @@
 \begin{equation}\label{eq2}\begin{split}
 	\int \frac{x^{2}}{x^{6} - 1} dx \labelrel={eq2:var_replace} \begin{vmatrix}t = x^{3}\\dt = 3x^{2}dx\\\frac{dt}{3} = x^{2}dx\end{vmatrix} = \frac{1}{3}\int\frac{dt}{t^2 - 1} = \frac{1}{3} \cdot \frac{1}{2} \ln\left\lvert\frac{t - 1}{t + 1}\right\rvert + C = \frac{1}{6} \ln\left\lvert\frac{x^3 - 1}{x^3 + 1}\right\rvert + C
 \end{split}\end{equation}
+В кроці~\eqref{eq2:var_replace} проведемо заміну.
 
 \section{Завдання №3}
 \begin{equation}\label{eq3}\begin{split}
 	\int \sin 2x \cdot e^{\cos 2x} dx  \labelrel={eq3:var_replace} \begin{vmatrix}t = \cos 2x\\dt = -2\sin2xdx\\-\frac{dt}{2} = \sin2xdx\end{vmatrix} = -\frac{1}{2} \int e^{t} dt = -\frac{1}{2} e^{\cos 2x} + C
 \end{split}\end{equation}
+В кроці~\eqref{eq3:var_replace} проведемо заміну тригонометричної функції.
 
 \section{Завдання №4}
 \begin{equation}\label{eq4}\begin{split}
 	& \int\frac{x - 1}{\sqrt{5 + 2x - x^2}}dx = \int \frac{x - 1}{\sqrt{-(x^2 - 2x - 5)}}dx  \labelrel={eq4:var_replace} \begin{vmatrix}t = x^2 - 2x - 5\\dt = (2x - 2)dx\\\frac{dt}{2} = (x - 1)dx\end{vmatrix} = \frac{1}{2}\int\frac{dt}{\sqrt{-t}} =\\
 	& -\frac{1}{2} \cdot 2\sqrt{-t} + C = - \sqrt{5 + 2x - x^2} + C
 \end{split}\end{equation}
+В кроці~\eqref{eq4:var_replace} проведемо заміну многочлена.
 
 \section{Завдання №5}
 \begin{equation}\label{eq5}\begin{split}
 	 \int (10x - 3)(5x^2 - 3x + 8)^8 dx \labelrel={eq5:var_replace} \begin{vmatrix}t = 5x^2 - 3x + 8\\dt = (10x - 3)dx\end{vmatrix} = \int t^8 dt = \frac{t^9}{9} + C = \frac{1}{9}(5x^2 - 3x + 8)^9 + C
 \end{split}\end{equation}
+В кроці~\eqref{eq5:var_replace} проведемо заміну многочлена.
 
 \section{Завдання №6}
 \begin{equation}\label{eq6}\begin{split}
@@ -90,10 +94,10 @@
 
 \section{Завдання №11}
 \begin{equation}\label{eq11}\begin{split}
-	& \int x^2 \arctg(3x)dx \labelrel={eq11:part_integ} \begin{vmatrix}u = \arctg 3x, du = \frac{dx}{1 + 9x^2}\\dv = x^2 dx, v = \int x^2 dx = \frac{x^3}{3}\end{vmatrix} = \frac{1}{3}x^3\arctg 3x - \int\frac{x^3 dx}{3(1 + 9x^2)} =\\
-	& \frac{1}{3}x^3\arctg 3x - \frac{1}{3}\int\frac{x^3 dx}{1 + 9x^2} = \begin{vmatrix}t = x^2\\dt = 2xdx\end{vmatrix} = \frac{1}{3}x^3\arctg 3x - \frac{1}{6}\int\frac{tdt}{9t + 1} =\\
-	&  \frac{1}{3}x^3\arctg 3x - \frac{1}{6}\int\frac{(9t + 1 - 1)dt}{9(9t + 1)} = \frac{1}{3}x^3\arctg 3x - \frac{1}{54}\left(\int dt - \int\frac{dt}{9t + 1}\right) =\\
-	& \frac{1}{3}x^3\arctg 3x - \frac{t}{54} + \frac{1}{486}\ln(9t + 1) + C = \frac{1}{3}x^3\arctg 3x - \frac{x^2}{54} + \frac{1}{486}\ln(9x^2 + 1) + C
+	& \int x^2 \arctg(3x)dx \labelrel={eq11:part_integ} \begin{vmatrix}u = \arctg 3x, du = \frac{3dx}{1 + 9x^2}\\dv = x^2 dx, v = \int x^2 dx = \frac{x^3}{3}\end{vmatrix} = \frac{1}{3}x^3\arctg 3x - \int\frac{x^3 dx}{1 + 9x^2} =\\
+	& \frac{1}{3}x^3\arctg 3x - \int\frac{x^3 dx}{1 + 9x^2} = \begin{vmatrix}t = x^2\\dt = 2xdx\end{vmatrix} = \frac{1}{3}x^3\arctg 3x - \frac{1}{2}\int\frac{tdt}{9t + 1} =\\
+	&  \frac{1}{3}x^3\arctg 3x - \frac{1}{2}\int\frac{(9t + 1 - 1)dt}{9(9t + 1)} = \frac{1}{3}x^3\arctg 3x - \frac{1}{18}\left(\int dt - \int\frac{dt}{9t + 1}\right) =\\
+	& \frac{1}{3}x^3\arctg 3x - \frac{t}{18} + \frac{1}{162}\ln\lvert9t + 1\rvert + C = \frac{1}{3}x^3\arctg 3x - \frac{x^2}{18} + \frac{1}{162}\ln\lvert9x^2 + 1\rvert + C
 \end{split}\end{equation}
 В кроці~\eqref{eq11:part_integ} проводимо інтегрування частинами.
 
@@ -106,7 +110,7 @@
 	& A(x^2 + 4x + 3) + B(x^2 + x - 6) + C(x^2 - x - 2) = 6x^2 + 3x - 15\\
 	& \sysdelim\{.\systeme{A + B + C = 6, 4A + B - C = 3, 3A - 6B - 2C = -15\quad} \to \begin{pmatrix}1 & 1 & 1 & 6\\ 4 & 1 & -1 & 3\\ 3 & -6 & -2 & -15\end{pmatrix} \labelrel\sim{eq12:step_one} \begin{pmatrix}1 & 1 & 1 & 6\\ 0 & -3 & -5 & -21\\ 0 & -9 & -5 & -33\end{pmatrix} \labelrel\sim{eq12:step_two}\\
 	& \begin{pmatrix}1 & 1 & 1 & 6\\ 0 & -3 & -5 & -21\\ 0 & 0 & 10 & 30\end{pmatrix} \to \sysdelim\{.\systeme{A + B + C = 6, (-3)B - 5C = -21, 10C = 30\quad} \to \sysdelim\{.\systeme{A = 1, B = 2, C = 3\quad}\\
-	& \ast = \int(\frac{1}{x-2} + \frac{2}{x+1} + \frac{3}{x + 3})dx = \int\frac{dx}{x-2} + 2\int\frac{dx}{x+1} + 3\int\frac{dx}{x + 3} =\\
+	& \ast = \int\left(\frac{1}{x-2} + \frac{2}{x+1} + \frac{3}{x + 3}\right)dx = \int\frac{dx}{x-2} + 2\int\frac{dx}{x+1} + 3\int\frac{dx}{x + 3} =\\
 	& \ln\lvert x - 2\rvert + 2\ln\lvert x + 1\rvert + 3\ln\lvert x + 3\rvert + C 
 \end{split}\end{equation}
 В кроці~\eqref{eq12:quad_eq_split} розкладемо квадратне рівняння на добуток двох членів.
@@ -152,18 +156,20 @@
 	& x - 2\int\frac{d(x^2 + 5x + 12)}{x^2 + 5x + 12} + 3\int\frac{dx}{x^2 + 5x + 12} \labelrel={eq16:sqr_equa} x - 2\ln(x^2 + 5x + 12) + 3\int\frac{dx}{(x^2 + 2x \cdot \frac{5}{2} + \frac{25}{4}) + \frac{23}{4}} =\\
 	& x - 2\ln(x^2 + 5x + 12) + 3\int\frac{dx}{\left(x + \frac{5}{2}\right)^2 + \left(\frac{\sqrt{23}}{2}\right)^2} = x - 2\ln(x^2 + 5x + 12) + \frac{6}{\sqrt{23}}\arctg\left(\frac{2x + 5}{\sqrt{23}}\right) + C
 \end{split}\end{equation}
-В кроці~\eqref{eq16:horner_method} використаємо метод Горнера, аби утворити правильну дріб.
+В кроці~\eqref{eq16:horner_method} використаємо метод Горнера, аби утворити правильний дріб.
 В кроці~\eqref{eq16:sqr_equa} виділяємо повний квадрат, аби привести інтеграл до табличного.
 
 \section{Завдання №17}
 \begin{equation}\label{eq17}\begin{split}
 	& \int \frac{x+1}{(x^2 - 4x + 9)^2} dx \labelrel={eq17:sqr_equa} \int\frac{x+1}{((x-2)^2 + 5)^2} = \begin{vmatrix}x - 2 = t, x = t + 2\\dx = dt\end{vmatrix} =\\
-	& \int\frac{t+3}{(t^2 + 5)^2}dt = \int\frac{\frac{1}{2}d(t^2 + 5) + 3dt}{(t^2 + 5)^2} = \int\frac{\frac{1}{2}d(t^2 + 5)}{(t^2 + 5)^2} + \int\frac{3dt}{(t^2 + 5)^2} =\\
+	& \int\frac{t+3}{(t^2 + 5)^2}dt = \int\frac{\frac{1}{2}d(t^2 + 5) + 3dt}{(t^2 + 5)^2} = \int\frac{\frac{1}{2}d(t^2 + 5)}{(t^2 + 5)^2} + \int\frac{3dt}{(t^2 + 5)^2} \labelrel={eq17:eq_general_form}\\
 	& -\frac{1}{2}\cdot\frac{1}{t^2 + 5} + 3\left(\frac{t}{10(t^2 + 5)} + \frac{1}{10}\int\frac{dt}{t^2 + 5}\right) =\\
 	& -\frac{1}{2(t^2 + 5)} + \frac{3t}{10(t^2 + 5)} + \frac{3}{10\sqrt{5}}\arctg\left(\frac{t}{\sqrt{5}}\right) + C =  \frac{3t - 5}{10(t^2 + 5)} + \frac{3}{10\sqrt{5}}\arctg\left(\frac{t}{\sqrt{5}}\right) + C =\\
 	& \frac{3x - 11}{10(x^2 - 4x + 9)} + \frac{3}{10\sqrt{5}}\arctg\left(\frac{x-2}{\sqrt{5}}\right) + C
 \end{split}\end{equation}
 В кроці~\eqref{eq17:sqr_equa} виділяємо повний квадрат, аби привести інтеграл до табличного.
+В кроці~\eqref{eq17:eq_general_form} застосуємо теорему Чебишева.
+
 
 \section{Завдання №18}
 \begin{equation}\label{eq18}\begin{split}
@@ -181,9 +187,9 @@
 \begin{equation}\label{eq20}\begin{split}
 	& \int\frac{x^2}{\sqrt{x^2 + 2x + 5}}dx = \int\frac{(x^2 + 2x + 5 - 2x - 5)}{\sqrt{x^2 + 2x + 5}}dx = \int\frac{\sqrt{(x^2 + 2x + 5)^2}}{\sqrt{x^2 + 2x + 5}}dx - \int\frac{2x + 5}{\sqrt{x^2 + 2x + 5}}dx =\\
 	& \int\sqrt{x^2 + 2x + 5}dx - \int\frac{d(x^2 + 2x + 5) + 3dx}{\sqrt{x^2 + 2x + 5}} =\\
-	& \int\sqrt{(x + 2)^2 + 1}d(x + 2) - \left(\int\frac{d(x^2 + 2x + 5)}{\sqrt{x^2 + 2x + 5}} + 3\int\frac{d(x + 2)}{\sqrt{(x + 2)^2 + 1}}\right) =\\
-	& \frac{x + 2}{2}\sqrt{x^2 + 2x + 5} + \frac{1}{2}\ln(x + 2 + \sqrt{x^2 + 2x + 5}) - 2\sqrt{x^2 + 2x + 5} - 3\ln(x + 2 + \sqrt{x^2 + 2x + 5}) + C =\\
-	& \frac{x-2}{2}\sqrt{x^2 + 2x + 5} - \frac{5}{2}\ln(x + 2 + \sqrt{x^2 + 2x + 5}) + C
+	& \int\sqrt{(x + 1)^2 + 4}d(x + 1) - \left(\int\frac{d(x^2 + 2x + 5)}{\sqrt{x^2 + 2x + 5}} + 3\int\frac{d(x + 1)}{\sqrt{(x + 1)^2 + 4}}\right) =\\
+	& \frac{x + 1}{2}\sqrt{x^2 + 2x + 5} + 2\ln\lvert x + 1 + \sqrt{x^2 + 2x + 5}\rvert - 2\sqrt{x^2 + 2x + 5} - 3\ln\lvert x + 1 + \sqrt{x^2 + 2x + 5}\rvert + C =\\
+	& \frac{x-3}{2}\sqrt{x^2 + 2x + 5} - \ln\lvert x + 1 + \sqrt{x^2 + 2x + 5}\rvert + C
 \end{split}\end{equation}
 
 \section{Завдання №21}
@@ -236,16 +242,16 @@
 
 \section{Завдання №27}
 \begin{equation}\label{eq27}\begin{split}
-	& \int\frac{dx}{\sin^2 x + \tg^2 x} \labelrel={eq27:tg_deriv_sub} \int\frac{\frac{dx}{\cos^2 x}}{\left(\tg^2 x + \frac{\tg^2 x}{\cos^2 x}\right)} \labelrel={eq27:cos_sq_sub} \int\frac{\frac{dx}{\cos^2 x}}{\left(\tg^2 x + \frac{\tg^2 x}{\tg^2 x + 1}\right)} = \begin{vmatrix}t = \tg x\\dt = \frac{1}{\cos^2 x}\end{vmatrix} =\\
-	& \int\frac{dt}{t^2 + \left(\frac{t^2}{t^2 + 1}\right)} = \int\frac{dt}{\frac{t^2(t^2 + 1) + t^2}{t^2 + 1}} = \int\frac{t^2 + 1}{t^2(t^2 + 2)}dt = \int\frac{t^2 + 2 - 1}{t^2(t^2 + 2)}dt = \int\frac{dt}{t^2} - \int\frac{dt}{t^4 + 2t^2} \labelrel={eq27:unknown_coeffs} \ast \\
+	& \int\frac{dx}{\sin^2 x + \tg^2 x} \labelrel={eq27:tg_deriv_sub} \int\frac{\frac{dx}{\cos^2 x}}{\left(\tg^2 x + \frac{\tg^2 x}{\cos^2 x}\right)} \labelrel={eq27:cos_sq_sub} \int\frac{\frac{dx}{\cos^2 x}}{\left(\tg^2 x + (\tg^2 x)(\tg^2 x + 1)\right)} =\\
+	& \begin{vmatrix}t = \tg x\\dt = \frac{1}{\cos^2 x}\end{vmatrix} = \int\frac{dt}{t^2 + t^2(t^2 + 1)} = \int\frac{dt}{t^4 + 2t^2} = \frac{dt}{t^2(t^2 + 2)} \labelrel={eq27:unknown_coeffs} \ast \\
 	& \frac{A}{t} + \frac{B}{t^2} + \frac{Ct + D}{t^2 + 2} = \frac{1}{t^4 + 2t^2}\\
 	& A(t^3 + 2t) + B(t^2 + 2) + Ct^3 + Dt^2 = 1\\
 	& \sysdelim\{.\systeme{A + C = 0, B + D = 0, 2A= 0, 2B = 1\quad} \sysdelim\{.\systeme{C = 0, D = -\frac{1}{2}, A = 0, B = \frac{1}{2}\quad}\\
-	& \ast = \int\frac{dt}{t^2} - \frac{1}{2}\int\frac{dt}{t^2} + \frac{1}{2}\int\frac{dt}{t^2 + 2} = \frac{1}{2}\int\frac{dt}{t^2} + \frac{1}{2}\int\frac{dt}{t^2 + 2} =\\
-	& \frac{1}{2}\left(-\frac{1}{t} + \frac{1}{\sqrt{2}}\arctg\left(\frac{t}{\sqrt{2}}\right)\right) + C = \frac{1}{2}\left(-\ctg x + \frac{1}{\sqrt{2}}\arctg\left(\frac{\tg x}{\sqrt{2}}\right)\right) + C
+	& \ast = \frac{1}{2}\int\frac{dt}{t^2} - \frac{1}{2}\int\frac{dt}{t^2 + 2} = \frac{1}{2}\left(\int t^{-2}dt - \int\frac{dt}{t^2 + 2}\right) =\\
+	& \frac{1}{2}\left(-\frac{1}{t} - \frac{1}{\sqrt{2}}\arctg\left(\frac{t}{\sqrt{2}}\right)\right) + C = \frac{1}{2}\left(-\ctg x - \frac{1}{\sqrt{2}}\arctg\left(\frac{\tg x}{\sqrt{2}}\right)\right) + C
 \end{split}\end{equation}
 В кроці~\eqref{eq27:tg_deriv_sub} домножимо і розділимо вираз на $\frac{1}{\cos^2 x}$.
-В кроці~\eqref{eq27:cos_sq_sub} замінимо $\cos^2 x$ на $\tg^2 x + 1$.
+В кроці~\eqref{eq27:cos_sq_sub} замінимо $\frac{1}{\cos^2 x}$ на $\tg^2 x + 1$.
 В кроці~\eqref{eq27:unknown_coeffs} використаємо метод невизначених коефіцієнтів.
 
 \section{Завдання №28}
