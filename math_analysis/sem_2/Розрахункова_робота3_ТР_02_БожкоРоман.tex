@@ -2,6 +2,7 @@
 \usepackage[english, ukrainian]{babel}
 \usepackage{amsmath}
 \usepackage{systeme}
+\usepackage{graphicx}
 
 \newcounter{relctr} %% <- counter for relations
 \everydisplay\expandafter{\the\everydisplay\setcounter{relctr}{0}} %% <- reset every eq
@@ -18,262 +19,59 @@
 
 \begin{document}
 
-\title{Математичний аналіз II\linebreakРозрахункова робота №1\\Варіант №3}
+\title{Математичний аналіз II\linebreakРозрахункова робота №3\\Варіант №3}
 \author{Божко Роман Вячеславович, TP-02}
 \date{\today}
 
 \maketitle
 
 \section{Завдання №1}
-\begin{equation}\label{eq1}\begin{split}
-	& \int\frac{3 - \sqrt{5 + x^2}}{5 + x^2} = 3\int\frac{dx}{5 + x^2} - \int\frac{\sqrt{5 + x^2}}{\sqrt{(5 + x^2)^2}}dx = 3\int\frac{dx}{5 + x^2} - \int\frac{dx}{\sqrt{5 + x^2}} =\\
-	& 3\int\frac{dx}{x^2 + (\sqrt{5})^2} - \int\frac{dx}{\sqrt{x^2 + (\sqrt{5})^2}} = \frac{3}{\sqrt{5}}\arctg\frac{x}{\sqrt{5}} - \ln (\lvert x + \sqrt{x^2 + 5}\rvert) + C
+\subsection{a)}
+\begin{equation}\label{eq1_a}\begin{split}
+	& \sqrt{4 + y^2} dx - ydy = x^2ydy, \sqrt{4 + y^2}\frac{dx}{dy} - y = x^2y, \sqrt{4 + y^2}\frac{dx}{dy} = x^2y + y, \sqrt{4 + y^2}\frac{dx}{dy} = y(x^2 + 1)\\
+	& \frac{dx}{x^2 + 1} = \frac{ydy}{\sqrt{4 + y^2}}, \int\frac{dx}{x^2 + 1} = \frac{1}{2}\int\frac{d(y^2 + 4)}{\sqrt{y^2 + 4}}, \arctg x = \sqrt{y^2 + 4} + C\\
+	& \arctg x - \sqrt{y^2 + 4} = C \text{, где С = const}
 \end{split}\end{equation}
 
-\section{Завдання №2}
-\begin{equation}\label{eq2}\begin{split}
-	\int \frac{x^{2}}{x^{6} - 1} dx \labelrel={eq2:var_replace} \begin{vmatrix}t = x^{3}\\dt = 3x^{2}dx\\\frac{dt}{3} = x^{2}dx\end{vmatrix} = \frac{1}{3}\int\frac{dt}{t^2 - 1} = \frac{1}{3} \cdot \frac{1}{2} \ln\left\lvert\frac{t - 1}{t + 1}\right\rvert + C = \frac{1}{6} \ln\left\lvert\frac{x^3 - 1}{x^3 + 1}\right\rvert + C
+\subsection{в)}
+\begin{equation}\label{eq1_b}\begin{split}
+	& y' = \frac{x + y}{x - y}, y' = \frac{\lambda x + \lambda y}{\lambda x - \lambda y} = \frac{x + y}{x - y} \to \text{ДР - однорідне} \to \begin{vmatrix}y=tx\\y' = t'x + t\end{vmatrix}\\
+	& t'x + t = \frac{x + tx}{x - tx}, t'x + t = \frac{1 + t}{1 - t}, t'x = \frac{t^2 + 1}{1 - t}, \frac{dt}{dx}x = \frac{t^2 + 1}{1 - t}, \frac{(1 - t)dt}{t^2 + 1}= \frac{dx}{x}\\
+	& \int\frac{dx}{x} = \int\frac{(1 - t)dt}{t^2 + 1}, \int\frac{-\frac{1}{2}d(t^2 + 1) + 1}{t^2 + 1}dt = \ln|x| + C^{*}, -\frac{1}{2}\ln|t^2 + 1| +\int\frac{dt}{t^2 + 1} = \ln|x| + C^{*},\\
+	& -\frac{1}{2}\ln|t^2 + 1| + \arctg t - \ln|x| = C^{*}, \frac{1}{2}\ln|t^2 + 1| + \ln|x| - \arctg t = -C^{*},\\
+	& \ln\left|x\sqrt{\frac{y^2}{x^2} + 1}\right| - \arctg \frac{y}{x} = -C^{*} \labelrel\to{eq1_b:const_subst}\ln|\sqrt{y^2 + x^2}| - \arctg \frac{y}{x} = C
 \end{split}\end{equation}
-В кроці~\eqref{eq2:var_replace} проведемо заміну.
+В кроці~\eqref{eq1_b:const_subst} проведемо заміну: $\displaystyle C = -C^{*}$.
 
-\section{Завдання №3}
-\begin{equation}\label{eq3}\begin{split}
-	\int \sin 2x \cdot e^{\cos 2x} dx  \labelrel={eq3:var_replace} \begin{vmatrix}t = \cos 2x\\dt = -2\sin2xdx\\-\frac{dt}{2} = \sin2xdx\end{vmatrix} = -\frac{1}{2} \int e^{t} dt = -\frac{1}{2} e^{\cos 2x} + C
+\section{Завдання №3.3}
+\subsection{a)}
+\begin{equation}\label{eq3_a}\begin{split}
+	& y' + y\cos x = \frac{1}{2}\sin(2x) \equiv y' + p(x) \cdot y = q(x) \to \text{ДР - лінійне неоднорідне 1-го порядку}\\
+	& \text{Застосуємо заміну: } u'v + uv' + uv\cos(x) = \frac{1}{2}\sin(2x), u'v + u(v' + v\cos(x)) = \frac{1}{2}\sin(2x)\\
+	& \sysdelim\{.\systeme{u'v = \frac{1}{2}\sin(2x), v' = -v\cos(x)\quad} \sim \sysdelim\{.\systeme{u'v = \frac{1}{2}\sin(2x), \frac{dv}{v} = -\cos(x)dx\quad} \sim \sysdelim\{.\systeme{u'v = \frac{1}{2}\sin(2x), \int\frac{dv}{v} = -\int\cos(x)dx\quad} \sim\\
+	& \sysdelim\{.\systeme{u'v = \frac{1}{2}\sin(2x), \ln|v| = -\sin(x)\quad} \sim \sysdelim\{.\systeme{u'e^{-\sin(x)} = \frac{1}{2}\sin(2x), v = e^{-\sin(x)}\quad} \sim \sysdelim\{.\systeme{\frac{du}{dx}e^{-\sin(x)} = \frac{1}{2}\sin(2x), v = e^{-\sin(x)}\quad}\\
+	& du = \frac{1}{2}\sin(2x)e^{\sin(x)}dx, \int du = \int \sin(x)\cos(x)e^{\sin(x)}dx, u = \int \sin(x)\cos(x)e^{\sin(x)}dx \labelrel={eq3_a:part_integ}\\
+	& \begin{vmatrix}a = \sin(x), da = \cos(x)dx\\db = \cos(x)e^{\sin(x)}dx, b = \int e^{\sin(x)}d(\sin(x)) = e^{\sin(x)}\end{vmatrix} = \sin(x)e^{\sin(x)} - \int e^{\sin(x)}\cos(x)dx =\\
+	& \sin(x)e^{\sin(x)} - \int e^{\sin(x)}d(\sin(x)) = e^{\sin(x)}(\sin(x) - 1) + C\\
+	& \text{Загальний розв'язок: } y = u \cdot v = e^{-\sin(x)}(e^{\sin(x)}(\sin(x) - 1) + C) = \sin(x) - 1 + Ce^{-\sin(x)} \text{, де } C = const\\
+	& \text{Задача Коші: } y(0) = 0, 0 = \sin(0) - 1 + Ce^{\sin(0)} = -1 + C \to C = 1\\
+	& \text{Частинний розв'язок: } y = \sin(x) - 1 + e^{-\sin(x)}
 \end{split}\end{equation}
-В кроці~\eqref{eq3:var_replace} проведемо заміну тригонометричної функції.
+В кроці~\eqref{eq3_a:part_integ} проводимо інтегрування частинами.
 
-\section{Завдання №4}
-\begin{equation}\label{eq4}\begin{split}
-	& \int\frac{x - 1}{\sqrt{5 + 2x - x^2}}dx = \int \frac{x - 1}{\sqrt{-(x^2 - 2x - 5)}}dx  \labelrel={eq4:var_replace} \begin{vmatrix}t = x^2 - 2x - 5\\dt = (2x - 2)dx\\\frac{dt}{2} = (x - 1)dx\end{vmatrix} = \frac{1}{2}\int\frac{dt}{\sqrt{-t}} =\\
-	& -\frac{1}{2} \cdot 2\sqrt{-t} + C = - \sqrt{5 + 2x - x^2} + C
+\section{Завдання №4.3}
+\subsection{a)}
+\begin{equation}\label{eq4_a}\begin{split}
+	& 2(xy' + y) = xy^2, y(1) = 2\\
+	& 2xy' + 2y = xy^2 - \text{ДР - рівняння Бернуллі} \to \frac{2xy'}{y^2} + \frac{2}{y} = x\\
+	& \text{Застосуємо заміну: } z = \frac{1}{y}, z' = -\frac{y'}{y^2}\\
+	& -2xz' + 2z = x, 2xz' - 2z = -x \text{ - лінійне неоднорідне 1-го порядку}\\
+	& \text{Застосуємо заміну: } 2x(u'v + uv') - 2uv = -x, 2xuv' + 2xuv' - 2uv = -x, 2xuv' + 2u(xv' - v) = -x\\
+	& \sysdelim\{.\systeme{2xu'v = -x, xv' - v = 0\quad} \sim \sysdelim\{.\systeme{2xu'v = -x, xv' = v\quad} \sim \sysdelim\{.\systeme{2xu'v = -x, x\frac{dv}{dx} = v\quad} \sim \sysdelim\{.\systeme{2xu'v = -x, \int\frac{dv}{v} = \int\frac{dx}{x}\quad} \sim\\
+	& \sysdelim\{.\systeme{2xu'v = -x, \ln|v| = \ln|x|\quad} \sim \sysdelim\{.\systeme{2u'x = -1, v = x\quad} \sim \sysdelim\{.\systeme{u'x = -\frac{1}{2}, v = x\quad} \sim\\
+	& \sysdelim\{.\systeme{\int du = -\frac{1}{2}\int\frac{dx}{x}, v = x\quad} \sim \sysdelim\{.\systeme{u = -\frac{1}{2}\ln|x| + C, v = x\quad}\\
+	& z = u \cdot v = x\left(-\frac{1}{2}\ln|x| + C\right) \to \text{Загальний розв'язок: } y = \frac{1}{-\frac{x}{2}\ln|x| + Cx}\\
+	& \text{Задача Коші: } y(1) = 2, 2 = \frac{1}{-\frac{1}{2}\ln|1| + C} \to C = \frac{1}{2}\\
+	& \text{Частинний розв'язок: } y = \frac{1}{-\frac{x}{2}\ln|x| + \frac{x}{2}} = \frac{2}{x(1 - \ln|x|)}
 \end{split}\end{equation}
-В кроці~\eqref{eq4:var_replace} проведемо заміну многочлена.
-
-\section{Завдання №5}
-\begin{equation}\label{eq5}\begin{split}
-	 \int (10x - 3)(5x^2 - 3x + 8)^8 dx \labelrel={eq5:var_replace} \begin{vmatrix}t = 5x^2 - 3x + 8\\dt = (10x - 3)dx\end{vmatrix} = \int t^8 dt = \frac{t^9}{9} + C = \frac{1}{9}(5x^2 - 3x + 8)^9 + C
-\end{split}\end{equation}
-В кроці~\eqref{eq5:var_replace} проведемо заміну многочлена.
-
-\section{Завдання №6}
-\begin{equation}\label{eq6}\begin{split}
-	& \int \frac{dx}{-3x^2 + 2x - 5} = -\frac{1}{3}\int\frac{dx}{x^2 -\frac{2x}{3} + \frac{5}{3}} \labelrel={eq6:sqr_equa} -\frac{1}{3}\int\frac{dx}{x^2 - 2 \cdot x \cdot \frac{1}{3} + \frac{1}{9} - \frac{1}{9} + \frac{5}{3}} =\\
-	& -\frac{1}{3}\int\frac{dx}{\left(x - \frac{1}{3}\right)^2 + \left(\frac{\sqrt{14}}{3}\right)^2} = -\frac{1}{\sqrt{14}}\arctg\left(\frac{3x-1}{\sqrt{14}}\right) + C
-\end{split}\end{equation}
-В кроці~\eqref{eq6:sqr_equa} виділяємо повний квадрат, аби привести інтеграл до табличного.
-
-\section{Завдання №7}
-\begin{equation}\label{eq7}\begin{split}
-	& \int\frac{dx}{\sqrt{5x^2 + 3x + 1}} = \int\frac{dx}{\sqrt{5}\sqrt{x^2 + \frac{3x}{5} + \frac{1}{5}}} \labelrel={eq7:sqr_equa} \frac{1}{\sqrt{5}}\int\frac{dx}{\sqrt{x^2 + \frac{3x}{5} + \frac{9}{100} - \frac{9}{100} + \frac{1}{5}}} =\\
-	& \frac{1}{\sqrt{5}}\int\frac{dx}{\sqrt{\left(x + \frac{3}{10}\right)^2 + \frac{11}{100}}} = \frac{1}{\sqrt{5}}\ln\left\lvert x + \frac{3}{10} + \sqrt{\left(x + \frac{3}{10}\right)^2 + \frac{11}{100}}\right\rvert + C
-\end{split}\end{equation}
-В кроці~\eqref{eq7:sqr_equa} виділяємо повний квадрат, аби привести інтеграл до табличного.
-
-\section{Завдання №8}
-\begin{equation}\label{eq8}\begin{split}
-	& \int \frac{dx}{\sqrt{x}(1 + \sqrt[3]{x})} = \int \frac{dx}{x^{\frac{1}{2}}(1 + x^{\frac{1}{3}})}  \labelrel={eq8:lcm_replace} \begin{vmatrix}x = t^{6}\\dx = 6t^5dt\end{vmatrix} = \int \frac{6t^5 dt}{t^3(1 + t^2)} = 6\int \frac{t^2 dt}{t^2 + 1} =\\
-	& 6\int \frac{t^2 + 1 - 1}{t^2 + 1}dt = 6\left(\int dt - \int\frac{dt}{t^2 + 1}\right) = 6(t - \arctg t) + C = 6\sqrt[6]{x} - 6\arctg \sqrt[6]{x} + C
-\end{split}\end{equation}
-В кроці~\eqref{eq8:lcm_replace} проводимо заміну в степені, який є найбільшим спільним кратним для знаменників степенів початкового рівняння.
-
-\section{Завдання №9}
-\begin{equation}\label{eq9}\begin{split}
-	& \int\ln(x^2 + 1) dx \labelrel={eq9:part_integ} \begin{vmatrix}u =\ln(x^2 + 1), du = \frac{2xdx}{x^2 + 1}\\dv=dx, v = \int dx = x\end{vmatrix} = x\ln(x^2 + 1) - \int \frac{2x^2 dx}{x^2 + 1} =\\
-	& x\ln(x^2 + 1) - 2\int\frac{x^2 + 1 - 1}{x^2 + 1} dx = x\ln(x^2 + 1) - 2\left(\int dx - \int \frac{dx}{x^2 + 1}\right) =\\
-	& x\ln(x^2 + 1) - 2(x - \arctg x + C) = x(\ln(x^2 + 1) - 2) + 2\arctg x + C
-\end{split}\end{equation}
-В кроці~\eqref{eq9:part_integ} проводимо інтегрування частинами.
-
-\section{Завдання №10}
-\begin{equation}\label{eq10}\begin{split}
-	& \int(x-2)\sin\left(\frac{x}{2}\right)dx \labelrel={eq10:part_integ} \begin{vmatrix}u = x - 2, du = dx\\dv = \sin(\frac{x}{2})dx, v = \int \sin(\frac{x}{2})dx = 2\int \sin(\frac{x}{2})d(\frac{x}{2}) = -2\cos(\frac{x}{2})\end{vmatrix} =\\
-	& -2\cos\left(\frac{x}{2}\right)(x - 2)-\int -2\cos\left(\frac{x}{2}\right)dx = -2\cos\left(\frac{x}{2}\right)(x - 2) + 2\int\cos\left(\frac{x}{2}\right)dx =\\
-	&  -2\cos\left(\frac{x}{2}\right)(x - 2) + 4\int\cos\left(\frac{x}{2}\right)d\left(\frac{x}{2}\right) = 4\sin\left(\frac{x}{2}\right) - 2\cos\left(\frac{x}{2}\right)(x - 2) + C
-\end{split}\end{equation}
-В кроці~\eqref{eq10:part_integ} проводимо інтегрування частинами.
-
-\section{Завдання №11}
-\begin{equation}\label{eq11}\begin{split}
-	& \int x^2 \arctg(3x)dx \labelrel={eq11:part_integ} \begin{vmatrix}u = \arctg 3x, du = \frac{3dx}{1 + 9x^2}\\dv = x^2 dx, v = \int x^2 dx = \frac{x^3}{3}\end{vmatrix} = \frac{1}{3}x^3\arctg 3x - \int\frac{x^3 dx}{1 + 9x^2} =\\
-	& \frac{1}{3}x^3\arctg 3x - \int\frac{x^3 dx}{1 + 9x^2} = \begin{vmatrix}t = x^2\\dt = 2xdx\end{vmatrix} = \frac{1}{3}x^3\arctg 3x - \frac{1}{2}\int\frac{tdt}{9t + 1} =\\
-	&  \frac{1}{3}x^3\arctg 3x - \frac{1}{2}\int\frac{(9t + 1 - 1)dt}{9(9t + 1)} = \frac{1}{3}x^3\arctg 3x - \frac{1}{18}\left(\int dt - \int\frac{dt}{9t + 1}\right) =\\
-	& \frac{1}{3}x^3\arctg 3x - \frac{t}{18} + \frac{1}{162}\ln\lvert9t + 1\rvert + C = \frac{1}{3}x^3\arctg 3x - \frac{x^2}{18} + \frac{1}{162}\ln\lvert9x^2 + 1\rvert + C
-\end{split}\end{equation}
-В кроці~\eqref{eq11:part_integ} проводимо інтегрування частинами.
-
-\section{Завдання №12}
-\begin{equation}\label{eq12}\begin{split}
-	& \int \frac{6x^2 + 3x - 15}{(x^2 + 4x + 3)(x - 2)}dx = \begin{vmatrix}x_{1, 2} = \frac{-4 \pm \sqrt{16 - 4 \cdot 1 \cdot 3}}{2} = \frac{-4 \pm 2}{2} = \begin{cases}-1\\-3\end{cases}\end{vmatrix} \labelrel={eq12:quad_eq_split}\\
-	& \int \frac{6x^2 + 3x - 15}{(x - 2)(x + 1)(x + 3)}dx \labelrel={eq12:unknown_coeffs} \ast\\
-	& \frac{A}{x-2} + \frac{B}{x+1} + \frac{C}{x +3} = \frac{6x^2 + 3x - 15}{(x - 2)(x + 1)(x + 3)}\\
-	& A(x + 1)(x + 3) + B(x - 2)(x + 3) + C(x - 2)(x + 1) = 6x^2 + 3x - 15\\
-	& A(x^2 + 4x + 3) + B(x^2 + x - 6) + C(x^2 - x - 2) = 6x^2 + 3x - 15\\
-	& \sysdelim\{.\systeme{A + B + C = 6, 4A + B - C = 3, 3A - 6B - 2C = -15\quad} \to \begin{pmatrix}1 & 1 & 1 & 6\\ 4 & 1 & -1 & 3\\ 3 & -6 & -2 & -15\end{pmatrix} \labelrel\sim{eq12:step_one} \begin{pmatrix}1 & 1 & 1 & 6\\ 0 & -3 & -5 & -21\\ 0 & -9 & -5 & -33\end{pmatrix} \labelrel\sim{eq12:step_two}\\
-	& \begin{pmatrix}1 & 1 & 1 & 6\\ 0 & -3 & -5 & -21\\ 0 & 0 & 10 & 30\end{pmatrix} \to \sysdelim\{.\systeme{A + B + C = 6, (-3)B - 5C = -21, 10C = 30\quad} \to \sysdelim\{.\systeme{A = 1, B = 2, C = 3\quad}\\
-	& \ast = \int\left(\frac{1}{x-2} + \frac{2}{x+1} + \frac{3}{x + 3}\right)dx = \int\frac{dx}{x-2} + 2\int\frac{dx}{x+1} + 3\int\frac{dx}{x + 3} =\\
-	& \ln\lvert x - 2\rvert + 2\ln\lvert x + 1\rvert + 3\ln\lvert x + 3\rvert + C 
-\end{split}\end{equation}
-В кроці~\eqref{eq12:quad_eq_split} розкладемо квадратне рівняння на добуток двох членів.
-В кроці~\eqref{eq12:unknown_coeffs} використаємо метод невизначених коефіцієнтів.
-В кроці~\eqref{eq12:step_one} віднімемо від другого рядка перший домножений на 4 і від третього перший домножений на 3.
-В кроці~\eqref{eq12:step_two} віднімемо від третього другий домножений на 3.
-
-\section{Завдання №13}
-\begin{equation}\label{eq13}\begin{split}
-	& \int\frac{-x^2 + 3x + 19}{(x-2)(x+3)^2}dx \labelrel={eq13:unknown_coeffs} \ast\\
-	& \frac{A}{x-2} + \frac{B}{x+3} + \frac{C}{(x + 3)^2} = \frac{-x^2 + 3x + 19}{(x-2)(x+3)^2}\\
-	& A(x+3)^2 + B(x-2)(x+3) + C(x-2) = -x^2 + 3x + 19\\
-	& A(x^2 + 6x + 9) + B(x^2 + x - 6) + C(x - 2) = -x^2 + 3x + 19\\
-	& \sysdelim\{.\systeme{A + B = -1, 6A + B + C = 3, 9A - 6B - 2C = 19\quad} \sysdelim\{.\systeme{B = -1 - A = -\frac{46}{25}, C = 4 - 5A = -\frac{1}{5}, A = \frac{21}{25}\quad}\\
-	& \ast = \int\left(\frac{\frac{21}{25}}{x-2} - \frac{\frac{46}{25}}{x+3} - \frac{\frac{1}{5}}{(x+3)^2}\right)dx = \frac{21}{25}\int\frac{d(x-2)}{x-2} - \frac{46}{25}\int\frac{d(x+3)}{x+3} - \frac{1}{5}\int\frac{d(x + 3)}{(x+3)^2} =\\
-	& \frac{21}{25}\ln\lvert x - 2\rvert - \frac{46}{25}\ln\lvert x + 3\rvert + \frac{1}{5(x + 3)} + C
-\end{split}\end{equation}
-В кроці~\eqref{eq13:unknown_coeffs} використаємо метод невизначених коефіцієнтів.
-
-\section{Завдання №14}
-\begin{equation}\label{eq13}\begin{split}
-	& \int\frac{3x + 7}{x^2 + 2x + 4}dx = \int\left(\frac{3(2x + 2)}{2(x^2 + 2x + 4)} + \frac{4}{x^2 + 2x + 4}\right)dx = \frac{3}{2}\int\frac{2x+2}{x^2 + 2x + 4}dx + 4\int\frac{dx}{x^2 + 2x + 4} =\\
-	& \begin{vmatrix}t = x^2 + 2x + 4\\dt = (2x + 2)dx\end{vmatrix} \labelrel={eq14:sqr_equa} \frac{3}{2}\int\frac{dt}{t} + 4\int\frac{dx}{x^2 + 2x + 1 - 1 + 4} = \frac{3}{2}\int\frac{dt}{t} + 4\int\frac{dx}{(x+1)^2 + (\sqrt{3})^2} =\\
-	& \frac{3}{2}\ln\lvert x^2 + 2x + 4\rvert + \frac{4}{\sqrt{3}}\arctg\frac{x + 1}{\sqrt{3}} + C
-\end{split}\end{equation}
-В кроці~\eqref{eq14:sqr_equa} виділяємо повний квадрат, аби привести інтеграл до табличного.
-
-\section{Завдання №15}
-\begin{equation}\label{eq15}\begin{split}
-	&\int\frac{x^2 - 24}{(x+2)(x^2 + 16)}dx \labelrel={eq15:unknown_coeffs} \ast \\
-	& \frac{A}{x+2} + \frac{Bx + C}{x^2 + 16} = \frac{x^2 - 24}{(x+2)(x^2 + 16)}\\
-	& A(x^2 + 16) + B(x^2 + 2x) + C(x + 2) = x^2 - 24\\
-	& \sysdelim\{.\systeme{A + B = 1, 2B + C = 0, 16A + 2C = -24\quad} \sysdelim\{.\systeme{B = 1 - A, C = 2A - 2, 16A + 4A = -20\quad} \sysdelim\{.\systeme{B = 2, C = -4, A = -1\quad}\\
-	& \int\left(-\frac{1}{x + 2} + \frac{2x - 4}{x^2 + 16}\right)dx = -\int\frac{dx}{x + 2} + \int\frac{(2x - 4)dx}{x^2 + 16} = -\int\frac{d(x + 2)}{x + 2} + \int\frac{d(x^2 + 16) - 4dx}{x^2 + 16} =\\
-	& -\ln(x+2) + \left(\int\frac{d(x^2 + 16)}{x^2 + 16} - 4\int\frac{dx}{x^2 + 16}\right) = \ln(x^2 + 16) - \ln\lvert x+2\rvert - \arctg\frac{x}{4} + C
-\end{split}\end{equation}
-В кроці~\eqref{eq15:unknown_coeffs} використаємо метод невизначених коефіцієнтів.
-
-\section{Завдання №16}
-\begin{equation}\label{eq16}\begin{split}
-	& \int\frac{x^2 + x + 5}{x^2 + 5x + 12} dx \labelrel={eq16:horner_method} \left\lvert\frac{x^2 + x + 5}{x^2 + 5x + 12} = x^2 + 5x + 12 - 4x - 7\right\rvert = \int\left(1 + \frac{-4x-7}{x^2 + 5x + 12}\right)dx =\\
-	& \int dx + \int\frac{-4x-7}{x^2 + 5x + 12}dx = x + \int\frac{-2d(x^2 + 5x + 12) + 3dx}{x^2 + 5x + 12} =\\
-	& x - 2\int\frac{d(x^2 + 5x + 12)}{x^2 + 5x + 12} + 3\int\frac{dx}{x^2 + 5x + 12} \labelrel={eq16:sqr_equa} x - 2\ln(x^2 + 5x + 12) + 3\int\frac{dx}{(x^2 + 2x \cdot \frac{5}{2} + \frac{25}{4}) + \frac{23}{4}} =\\
-	& x - 2\ln(x^2 + 5x + 12) + 3\int\frac{dx}{\left(x + \frac{5}{2}\right)^2 + \left(\frac{\sqrt{23}}{2}\right)^2} = x - 2\ln(x^2 + 5x + 12) + \frac{6}{\sqrt{23}}\arctg\left(\frac{2x + 5}{\sqrt{23}}\right) + C
-\end{split}\end{equation}
-В кроці~\eqref{eq16:horner_method} використаємо метод Горнера, аби утворити правильний дріб.
-В кроці~\eqref{eq16:sqr_equa} виділяємо повний квадрат, аби привести інтеграл до табличного.
-
-\section{Завдання №17}
-\begin{equation}\label{eq17}\begin{split}
-	& \int \frac{x+1}{(x^2 - 4x + 9)^2} dx \labelrel={eq17:sqr_equa} \int\frac{x+1}{((x-2)^2 + 5)^2} = \begin{vmatrix}x - 2 = t, x = t + 2\\dx = dt\end{vmatrix} =\\
-	& \int\frac{t+3}{(t^2 + 5)^2}dt = \int\frac{\frac{1}{2}d(t^2 + 5) + 3dt}{(t^2 + 5)^2} = \int\frac{\frac{1}{2}d(t^2 + 5)}{(t^2 + 5)^2} + \int\frac{3dt}{(t^2 + 5)^2} \labelrel={eq17:eq_general_form}\\
-	& -\frac{1}{2}\cdot\frac{1}{t^2 + 5} + 3\left(\frac{t}{10(t^2 + 5)} + \frac{1}{10}\int\frac{dt}{t^2 + 5}\right) =\\
-	& -\frac{1}{2(t^2 + 5)} + \frac{3t}{10(t^2 + 5)} + \frac{3}{10\sqrt{5}}\arctg\left(\frac{t}{\sqrt{5}}\right) + C =  \frac{3t - 5}{10(t^2 + 5)} + \frac{3}{10\sqrt{5}}\arctg\left(\frac{t}{\sqrt{5}}\right) + C =\\
-	& \frac{3x - 11}{10(x^2 - 4x + 9)} + \frac{3}{10\sqrt{5}}\arctg\left(\frac{x-2}{\sqrt{5}}\right) + C
-\end{split}\end{equation}
-В кроці~\eqref{eq17:sqr_equa} виділяємо повний квадрат, аби привести інтеграл до табличного.
-В кроці~\eqref{eq17:eq_general_form} застосуємо теорему Чебишева.
-
-
-\section{Завдання №18}
-\begin{equation}\label{eq18}\begin{split}
-	& \int \frac{3x + 2}{\sqrt{x^2 + x + 3}}dx = \int\frac{\frac{3}{2}d(x^2 + x + 3) + \frac{1}{2}dx}{\sqrt{x^2 + x + 3}} = \frac{3}{2}\int\frac{d(x^2 + x + 3)}{\sqrt{x^2 + x + 3}} + \frac{1}{2}\int\frac{dx}{\sqrt{x^2 + x + 3}} \labelrel={eq18:sqr_equa}\\
-	& 3\sqrt{x^2 + x + 3} + \frac{1}{2}\int\frac{dx}{\sqrt{\left(x + \frac{1}{2}\right)^2 + \left(\frac{\sqrt{11}}{2}\right)^2}} =  3\sqrt{x^2 + x + 3} + \frac{1}{2}\ln\lvert x + \frac{1}{2} + \sqrt{x^2 + x + 3}\rvert + C
-\end{split}\end{equation}
-В кроці~\eqref{eq18:sqr_equa} виділяємо повний квадрат, аби привести інтеграл до табличного.
-
-\section{Завдання №19}
-\begin{equation}\label{eq19}\begin{split}
-	& \int \frac{x^2 dx}{x\sqrt{x^2 - 3}} = \int \frac{xdx}{\sqrt{x^2 - 3}} = \begin{vmatrix}t = x^2 - 3\\dt = 2xdx\\xdx = \frac{dt}{2}\end{vmatrix} = \frac{1}{2}\int\frac{dt}{\sqrt{t}} = \frac{1}{2}\cdot2\sqrt{t} + C = \sqrt{x^2 - 3} + C
-\end{split}\end{equation}
-
-\section{Завдання №20}
-\begin{equation}\label{eq20}\begin{split}
-	& \int\frac{x^2}{\sqrt{x^2 + 2x + 5}}dx = \int\frac{(x^2 + 2x + 5 - 2x - 5)}{\sqrt{x^2 + 2x + 5}}dx = \int\frac{\sqrt{(x^2 + 2x + 5)^2}}{\sqrt{x^2 + 2x + 5}}dx - \int\frac{2x + 5}{\sqrt{x^2 + 2x + 5}}dx =\\
-	& \int\sqrt{x^2 + 2x + 5}dx - \int\frac{d(x^2 + 2x + 5) + 3dx}{\sqrt{x^2 + 2x + 5}} =\\
-	& \int\sqrt{(x + 1)^2 + 4}d(x + 1) - \left(\int\frac{d(x^2 + 2x + 5)}{\sqrt{x^2 + 2x + 5}} + 3\int\frac{d(x + 1)}{\sqrt{(x + 1)^2 + 4}}\right) =\\
-	& \frac{x + 1}{2}\sqrt{x^2 + 2x + 5} + 2\ln\lvert x + 1 + \sqrt{x^2 + 2x + 5}\rvert - 2\sqrt{x^2 + 2x + 5} - 3\ln\lvert x + 1 + \sqrt{x^2 + 2x + 5}\rvert + C =\\
-	& \frac{x-3}{2}\sqrt{x^2 + 2x + 5} - \ln\lvert x + 1 + \sqrt{x^2 + 2x + 5}\rvert + C
-\end{split}\end{equation}
-
-\section{Завдання №21}
-\begin{equation}\label{eq21}\begin{split}
-	& \int \cos(2x)\sin x dx \labelrel={eq21:cos_sin_prod} \frac{1}{2} \left(\int \sin(-x)dx + \int\sin(3x)dx)\right) = \frac{1}{2}\left(-\int\sin(x)dx + \frac{1}{3}\int\sin(3x)d(3x)\right) =\\
-	& \frac{1}{2}\cos x - \frac{1}{6} \cos(3x) + C
-\end{split}\end{equation}
-В кроці~\eqref{eq21:cos_sin_prod} використаємо формулу добутку тригонометричних функцій: $\linebreak\displaystyle \sin\alpha \cdot \cos\beta=\frac{(\sin(\alpha + \beta) + \sin(\alpha - \beta))}{2}$.
-
-\section{Завдання №22}
-\begin{equation}\label{eq22}\begin{split}
-	& \int \sin^2(5x)dx \labelrel={eq22:sin_subst} \frac{1}{2}\int\left(1 - \cos (10x)\right)dx = \frac{1}{2}\left(\int dx - \int\cos(10x)dx\right) =\\
-	& \frac{1}{2}\left(x - \frac{1}{10}\int\cos(10x)d(10x)\right) = \frac{1}{2}\left(x - \frac{1}{10}\sin(10x)\right) + C
-\end{split}\end{equation}
-В кроці~\eqref{eq22:sin_subst} використаємо формулу для пониження степеня: $\displaystyle \sin^2\alpha = \frac{(1 - \cos2\alpha)}{2}$.
-
-\section{Завдання №23}
-\begin{equation}\label{eq23}\begin{split}
-	& \int \cos^3(3x)dx = \int \cos^2(3x)\cos(3x)dx \labelrel={eq23:cos_subst} \frac{1}{2}\int(1+\cos(6x))\cos(3x)dx =\\
-	& \frac{1}{2}\int(\cos(3x) + \cos(3x)\cos(6x))dx = \frac{1}{2}\int\cos(3x)dx + \frac{1}{2}\int(\cos(-3x) + \cos(9x))dx =\\
-	& \frac{1}{2}\left(\frac{1}{3}\int\cos(3x)d(3x) + \frac{1}{2}\left(\frac{1}{3}\int\cos(3x)d(3x) + \frac{1}{9}\int\cos(9x)d(9x)\right)\right) =\\
-	& \frac{1}{2}\left(\frac{1}{3}\sin(3x) + \frac{1}{2}\left(\frac{1}{3}\sin(3x) + \frac{1}{9}\sin(9x)\right)\right) + C = \frac{1}{4}\sin(3x) + \frac{1}{36}\sin(9x) + C
-\end{split}\end{equation}
-В кроці~\eqref{eq23:cos_subst} використаємо формулу для пониження степеня: $\displaystyle \cos^2\alpha = \frac{(1 + \cos2\alpha)}{2}$.
-
-\section{Завдання №24}
-\begin{equation}\label{eq24}\begin{split}
-	& \int \sin^4(x)dx = \int \sin^2(x)\sin^2(x)dx \labelrel={eq24:sin_subst} \frac{1}{4}\int(1 - \cos(2x))(1 - \cos(2x))dx =\\
-	& \frac{1}{4}\int(1 - 2\cos(2x) + \cos^2(2x))dx = \frac{1}{4}\left(\int dx - \int\cos(2x)d(2x) + \frac{1}{2}\int(1 + \cos(4x))\right)dx =\\
-	& \frac{1}{4}\left(\int dx - \int\cos(2x)d(2x) + \frac{1}{2}\left(\int dx + \frac{1}{4}\int\cos(4x)d(4x)\right)\right) =\\
-	& \frac{1}{4}\left(x - \sin(2x) + \frac{1}{2}\left(x + \frac{1}{4}\sin(4x)\right)\right) + C = \frac{3}{8}x - \frac{1}{4}\sin(2x) + \frac{1}{32}\sin(4x) + C
-\end{split}\end{equation}
-В кроці~\eqref{eq24:sin_subst} використаємо формулу для пониження степеня: $\displaystyle \sin^2\alpha = \frac{(1 - \cos2\alpha)}{2}$.
-
-\section{Завдання №25}
-\begin{equation}\label{eq25}\begin{split}
-	& \int \frac{\sin 2x}{\cos^4 x + \sin^4 x}dx = \int\frac{2\sin x\cos xdx}{\frac{(\cos^4 x + \sin^4 x)}{\cos^4 x}\cdot\cos^4 x} = \int\frac{2\sin x\cos xdx}{(\tg^4 x + 1)\cdot \cos^4 x} =\\
-	& \int\frac{2\sin xdx}{(\tg^4 x + 1)\cdot \cos^3 x} = \int\frac{2\tg xd(\tg x)}{\tg^4 x + 1} = \begin{vmatrix}t = \tg x\\dt = d(\tg x)\end{vmatrix} =\\
-	& \int\frac{2tdt}{(t^2)^2 + 1} = \int\frac{d(t^2)}{(t^2)^2 + 1} = \arctg t^2 + C = \arctg (\tg^2 x) + C
-\end{split}\end{equation}
-
-\section{Завдання №26}
-\begin{equation}\label{eq26}\begin{split}
-	& \int\frac{dx}{8 - 4\sin x + 9\cos x} = \begin{vmatrix}z = \tg\frac{x}{2}, \arctg z = \frac{x}{2}\\x = 2\arctg z, dx = \frac{2dz}{1 + z^2}\end{vmatrix} \labelrel={eq26:sin_cos_tg_subst} \int\frac{\frac{2dz}{1 + x^2}}{8 - \frac{4z}{1 + z^2} + \frac{9(1 - z^2)}{1 + z^2}} =\\
-	& 2\int\frac{dz}{-z^2 - 8z + 17} \labelrel={eq26:sqr_equa} -2\int\frac{dz}{z^2 + 8z + 16 - 33} = -2\int\frac{dz}{(z + 4)^2 - 33} = -2\int\frac{d(z + 4)}{(z + 4)^2 - (\sqrt{33})^2} =\\
-	& -\frac{2}{2\sqrt{33}}\ln\left(\frac{z + 4 - \sqrt{33}}{z + 4 + \sqrt{33}}\right) + C = -\frac{1}{\sqrt{33}}\ln\left(\frac{\tg \frac{x}{2} + 4 - \sqrt{33}}{\tg \frac{x}{2} + 4 + \sqrt{33}}\right) + C
-\end{split}\end{equation}
-В кроці~\eqref{eq26:sin_cos_tg_subst} використаємо формули для заміни $\sin$ і $\cos$ через $\tg$: $\displaystyle \sin\alpha = \frac{2\tg\frac{\alpha}{2}}{1 + \tg^2\frac{\alpha}{2}}, \cos\alpha = \frac{1 -\tg^2\frac{\alpha}{2}}{1 + \tg^2\frac{\alpha}{2}}$.
-В кроці~\eqref{eq26:sqr_equa} виділяємо повний квадрат, аби привести інтеграл до табличного.
-
-\section{Завдання №27}
-\begin{equation}\label{eq27}\begin{split}
-	& \int\frac{dx}{\sin^2 x + \tg^2 x} \labelrel={eq27:tg_deriv_sub} \int\frac{\frac{dx}{\cos^2 x}}{\left(\tg^2 x + \frac{\tg^2 x}{\cos^2 x}\right)} \labelrel={eq27:cos_sq_sub} \int\frac{\frac{dx}{\cos^2 x}}{\left(\tg^2 x + (\tg^2 x)(\tg^2 x + 1)\right)} =\\
-	& \begin{vmatrix}t = \tg x\\dt = \frac{1}{\cos^2 x}\end{vmatrix} = \int\frac{dt}{t^2 + t^2(t^2 + 1)} = \int\frac{dt}{t^4 + 2t^2} = \frac{dt}{t^2(t^2 + 2)} \labelrel={eq27:unknown_coeffs} \ast \\
-	& \frac{A}{t} + \frac{B}{t^2} + \frac{Ct + D}{t^2 + 2} = \frac{1}{t^4 + 2t^2}\\
-	& A(t^3 + 2t) + B(t^2 + 2) + Ct^3 + Dt^2 = 1\\
-	& \sysdelim\{.\systeme{A + C = 0, B + D = 0, 2A= 0, 2B = 1\quad} \sysdelim\{.\systeme{C = 0, D = -\frac{1}{2}, A = 0, B = \frac{1}{2}\quad}\\
-	& \ast = \frac{1}{2}\int\frac{dt}{t^2} - \frac{1}{2}\int\frac{dt}{t^2 + 2} = \frac{1}{2}\left(\int t^{-2}dt - \int\frac{dt}{t^2 + 2}\right) =\\
-	& \frac{1}{2}\left(-\frac{1}{t} - \frac{1}{\sqrt{2}}\arctg\left(\frac{t}{\sqrt{2}}\right)\right) + C = \frac{1}{2}\left(-\ctg x - \frac{1}{\sqrt{2}}\arctg\left(\frac{\tg x}{\sqrt{2}}\right)\right) + C
-\end{split}\end{equation}
-В кроці~\eqref{eq27:tg_deriv_sub} домножимо і розділимо вираз на $\frac{1}{\cos^2 x}$.
-В кроці~\eqref{eq27:cos_sq_sub} замінимо $\frac{1}{\cos^2 x}$ на $\tg^2 x + 1$.
-В кроці~\eqref{eq27:unknown_coeffs} використаємо метод невизначених коефіцієнтів.
-
-\section{Завдання №28}
-\begin{equation}\label{eq28}\begin{split}
-	& \int \frac{dx}{x\sqrt{x^2 - 1}} \labelrel={eq28:eq_general_form} \int x^{-1}(-1 + x^2)^{-\frac{1}{2}}dx = \begin{vmatrix}x^2 - 1= t^2, x^2 = t^2 + 1\\d(x^2 - 1) = d(t^2), 2xdx = 2tdt\\\frac{dx}{x} = \frac{tdt}{x^2} = \frac{tdt}{t^2 + 1}\end{vmatrix} =\\
-	& \int\frac{tdt}{t(t^2 + 1)} = \int\frac{dt}{t^2 + 1} = \arctg t + C = \arctg(\sqrt{x^2 - 1}) + C
-\end{split}
-\end{equation}
-В кроці~\eqref{eq28:eq_general_form} запишемо рівняння в загальному виді і застосуємо теорему Чебишева.
-
-\section{Завдання №29}
-\begin{equation}\label{eq29}\begin{split}
-	& \int\sqrt{x^2 + 3x - 4}dx \labelrel={eq29:sqr_equa} \int\sqrt{x^2 + 2\cdot x\cdot\frac{3}{2} + \frac{9}{4} - \frac{9}{4} - \frac{16}{4}}dx =\\
-	& \int\left(\sqrt{\left(x + \frac{3}{2}\right)^2 - \left(\frac{5}{2}\right)^2}\right) dx =\int\left(\sqrt{\left(x + \frac{3}{2}\right)^2 - \left(\frac{5}{2}\right)^2}\right) d\left(x+\frac{3}{2}\right) =\\
-	& \frac{x + \frac{3}{2}}{2}\left(\sqrt{\left(x + \frac{3}{2}\right)^2 - \left(\frac{5}{2}\right)^2}\right) - \frac{25}{8}\ln\left\lvert\left(x + \frac{3}{2}\right) + \sqrt{\left(x + \frac{3}{2}\right)^2 - \left(\frac{5}{2}\right)^2}\right\rvert + C
-\end{split}\end{equation}
-В кроці~\eqref{eq29:sqr_equa} виділяємо повний квадрат, аби привести інтеграл до табличного.
-
-\section{Завдання №30}
-\begin{equation}\label{eq30}\begin{split}
-	& \int\sqrt{3 - 4x - x^2}dx \labelrel={eq30:sqr_equa} \int\sqrt{7 - (x + 2)^2}dx = \int\sqrt{(\sqrt{7})^2 - (x + 2)^2}dx =\\
-	& \frac{x + 2}{2}\sqrt{7 - (x + 2)^2} + \frac{7}{2}\arcsin\left(\frac{x + 2}{\sqrt{7}}\right) + C
-\end{split}\end{equation}
-В кроці~\eqref{eq30:sqr_equa} виділяємо повний квадрат, аби привести інтеграл до табличного.
 \end{document}
