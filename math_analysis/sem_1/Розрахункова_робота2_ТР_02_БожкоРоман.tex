@@ -1,0 +1,115 @@
+\documentclass{report}
+\usepackage[english, ukrainian]{babel}
+\usepackage{amsmath}
+\usepackage{systeme}
+
+\newcounter{relctr} %% <- counter for relations
+\everydisplay\expandafter{\the\everydisplay\setcounter{relctr}{0}} %% <- reset every eq
+\renewcommand*\therelctr{\alph{relctr}} %% <- label format
+
+\newcommand\labelrel[2]{%
+  \begingroup
+    \refstepcounter{relctr}%
+    \stackrel{\textnormal{(\alph{relctr})}}{\mathstrut{#1}}%
+    \originallabel{#2}%
+  \endgroup
+}
+\AtBeginDocument{\let\originallabel\label} %% <- store original definition
+
+\begin{document}
+
+\title{Математичний аналіз I\linebreakРозрахункова робота №2}
+\author{Божко Роман Вячеславович, TP-02}
+\date{\today}
+
+\maketitle
+
+\section{Завдання №1}
+\begin{equation}\begin{split}\label{eq1}
+	& y = \tg(\lg\frac{1}{3}) + \frac{1}{4}\cdot\frac{\sin^{2}4x}{\cos6x}, y' = \left(\tg(\lg\frac{1}{3})\right)' + \left(\frac{1}{4}\cdot\frac{\sin^{2}4x}{\cos6x}\right)' =\\
+	& 0 + \frac{1}{4}\cdot\frac{(2\sin4x\cos4x \cdot 4)(\cos6x) - (\sin^{2}4x)(-6\sin6x)}{\cos^{2}6x} =\\
+	& \frac{(8\sin4x\cos4x\cos6x + 6\sin^{2}4x\sin6x)}{4\cos^{2}6x} = \frac{\sin4x(4\cos4x\cos6x + 3\sin4x\sin6x)}{2\cos^{2}6x} =\\
+	& \frac{1}{2} \cdot \frac{\sin4x}{\cos6x} \cdot \frac{(4\cos4x\cos6x + 3\sin4x\sin6x)}{\cos6x} =  \frac{1}{2} \cdot \frac{\sin4x}{\cos6x} \cdot (4\cos4x + 3\sin4x\tg6x)
+\end{split}\end{equation}
+
+\section{Завдання №2}
+\begin{equation}\label{eq2}\begin{split}
+	& y = (\sin x)^{5e^{x}}, \ln y = 5e^{x}\ln(\sin x), \\
+	& \frac{1}{y} \cdot y' = (5e^{x}\ln(\sin x) + 5e^{x}\cdot\frac{1}{\sin x}\cdot\cos x)\\
+	& y' = 5e^{x}((\sin x)^{5e^{x}})(\ln(\sin x) + \ctg x)
+\end{split}\end{equation}
+
+\section{Завдання №3}
+\begin{equation}\label{eq3}\begin{split}
+	& y = x\cos x^{2}\\
+	& y' = (\cos x^{2} + x(-\sin x^{2})\cdot2x) = (\cos x^{2} - 2x^{2}\sin x^{2})\\
+	& y'' = -\sin x^{2} \cdot 2x - (4x\sin x^{2} + 2x^{2}\cos x^{2} \cdot 2x) = -6x\sin x^{2} - 4x^{3}\cos x^{2} =\\
+	& -2(3x\sin x^{2} + 2x^{3}\cos x^{2}) \\
+	& y^{(3)} = -2(3\sin x^{2} + 6x^{2}\cos x^{2} + 6x^{2} \cos x^{2} - 4x^{4} \sin x^{2}) =\\
+	& -2(3\sin x^{2} + 12x^{2}\cos x^{2} - 4x^{4} \sin x^{2}) = 8x^{4}\sin x^{2} - 6\sin x^{2} - 24x^{2} \cos x^{2} =\\
+	& 2\sin x^{2} (4x^{4} - 3) - 24x^{2}\cos x^{2}
+\end{split}\end{equation}
+
+\section{Завдання №4}
+\begin{equation}\label{eq4}\begin{split}
+	& y = \sqrt[5]{e^{7x - 1}} = e^{\frac{7x - 1}{5}}\\
+	& y' = e^{\frac{7x - 1}{5}} \cdot \frac{7}{5}\\
+	& y'' = \frac{7}{5} \cdot e^{\frac{7x - 1}{5}} = \frac{7}{5} \cdot e^{\frac{7x - 1}{5}} \cdot \frac{7}{5} = \left(\frac{7}{5}\right)^{2} \cdot e^{\frac{7x - 1}{5}}\\
+	& y^{(n)} = \frac{7^{n}}{5^{n}} \cdot e^{\frac{7x - 1}{5}}
+\end{split}\end{equation}
+
+\section{Завдання №5}
+\begin{equation}\label{eq5}\begin{split}
+	 & \sysdelim\{.\systeme{x = e^{t}\cos t, y = e^{t}\sin t\quad}, y'_x = \frac{y'_t}{x'_t}, y''_{xx} = \frac{(y'_x)'_t}{x'_t}\\
+	& x'_t = e^{t}\cos t + e^{t}(-\sin t) = e^{t}(\cos t - \sin t)\\
+	& y'_t = e^{t}\sin t + e^{t}(\cos t) = e^{t}(\sin t + \cos t)\\
+	& y'_x = \frac{(\sin t + \cos t)}{(\cos t - \sin t)}\\
+	& (y'_x)'_t = \frac{(\cos t - \sin t)(\cos t - \sin t) - (\sin t + \cos t)(-\sin t - \cos t)}{(\cos t - \sin t)^{2}} =\\
+	& \frac{(\cos t - \sin t)^{2} - (\sin t + \cos t)^{2}}{(\cos t - \sin t)^{2}} = \frac{\cos^{2}t + \sin^{2}t + \cos^{2}t + \sin^{2}t}{(\cos t - \sin t)^{2}} =\\
+	& \frac{2(\cos^{2}t + \sin^{2}t)}{(\cos t - \sin t)^{2}} \labelrel={eq5:pyth_identity} \frac{2}{(\cos t - \sin t)^{2}}\\
+	&  y''_{xx} = \frac{2}{(\cos t - \sin t)^{2}} \cdot \frac{1}{e^{t}(\cos t - \sin t)} =  \frac{2}{e^{t}(\cos t - \sin t)^{3}}
+\end{split}\end{equation}
+В кроці~\eqref{eq5:pyth_identity} була використана основна тригонометрична тотожність: $\displaystyle \sin ^{2}\theta +\cos ^{2}\theta =1$
+
+\section{Завдання №6}
+\begin{equation}\label{eq6}\begin{split}
+	& x - y = -e^{y}\arctg x, 1 - y' = -\left(y'e^{y}\arctg x + e^{y}\cdot\frac{1}{1 + x^{2}}\right)\\
+	& 1 - y' = -y'e^{y}\arctg x - e^{y}\cdot\frac{1}{1 + x^{2}}, y'e^{y}\arctg x - y' = -e^{y}\cdot\frac{1}{1 + x^{2}} - 1\\
+	& y'(e^{y}\arctg x - 1) = -e^{y}\cdot\frac{1}{1 + x^{2}} - 1, y' = \frac{-e^{y} - x^{2} - 1}{(1 + x^{2})(e^{y}\arctg x - 1)}
+\end{split}
+\end{equation}
+
+\section{Завдання №7}
+\begin{equation}\label{eq7}
+	\lim_{x \to 0} \frac{\tg x - x}{\sin x - x^{2}} = \left[\frac{0}{0}\right] \overset{L}{=} \lim_{x \to 0} \frac{\frac{1}{\cos^{2}x} - 1}{\cos x - 2x} = 0
+\end{equation}
+
+\section{Завдання №8}
+\begin{equation}\label{eq8}\begin{split}
+	&y = x - x^{3}, x_0 = -1\\
+	&\mbox{Рівняння дотичної до графіка функції: } y - f(x_0) = f'(x_0)(x - x_0)\\
+	& f'(x) = 1 - 3x^{2}, f'(x_0) = -2, f(x_0) = 0, y =  -2x - 2\\
+	&\mbox{Рівняння нормалі до графіка функції: } y - f(x_0) = -\frac{1}{f'(x_0)}(x - x_0)\\
+	& y - 0 = -\frac{1}{-2}(x + 1), y = \frac{x + 1}{2}
+\end{split}
+\end{equation}
+
+\section{Завдання №9}
+\begin{equation}\label{eq9}\begin{split}
+	& y = \sqrt{1 + 2x} - \ln |x + \sqrt{1 + 2x}|\\
+	& dy = \left(\frac{2}{2\sqrt{1 + 2x}} - \frac{1}{|x + \sqrt{1 + 2x}|} \cdot \frac{x + \sqrt{1 + 2x}}{|x + \sqrt{1 + 2x}|} \cdot \left(1 + \frac{2}{2\sqrt{1 + 2x}}\right)\right)dx \labelrel={eq9:module_tpow}\\
+	& dy = \left(\frac{1}{\sqrt{1 + 2x}} - \frac{1}{x + \sqrt{1 + 2x}} \cdot \left(1 + \frac{1}{\sqrt{1 + 2x}}\right)\right)dx =\\
+	& dy = \frac{(x + \sqrt{1 + 2x}) - (1 + \frac{1}{\sqrt{1 + 2x}})(\sqrt{1 + 2x})}{(\sqrt{1 + 2x})({x + \sqrt{1 + 2x}})}dx =\\
+	& dy = \frac{x + \sqrt{1 + 2x} - \sqrt{1 + 2x} - 1}{x\sqrt{1 + 2x} + 1 + 2x} = \frac{x - 1}{x(\sqrt{1 + 2x} + 2) + 1}
+\end{split}\end{equation}
+В кроці~\eqref{eq9:module_tpow} була використана наступна властивість модуля: $|a|^{2} = a^{2}$
+
+\section{Завдання №10}
+\begin{equation}\begin{split}
+	& y = \frac{1}{2}(x + \sqrt{5 - x^{2}}), x_0 = 0.98, \Delta x = 0.02\\
+	& \mbox{Формула для наближених обчислень: } f(x_0 + \Delta x) \approx f(x_0) + f'(x_0) \cdot \Delta x\\
+	& f'(x) = \frac{1}{2}\left(1 - \frac{2x}{2\sqrt{5 - x^{2}}}\right) = \frac{1}{2}\left(1 - \frac{x}{\sqrt{5 - x^{2}}}\right)\\
+	& f(x_0 + \Delta x) = \frac{3}{2}, f(x_0) \approx 1.494, f'(x_0) \approx 0.256\\
+	& f(x_0 + \Delta x) = \frac{3}{2} \approx 1.494 + 0.256 \cdot 0.02 \approx 1.49912
+\end{split}\end{equation}
+\end{document}

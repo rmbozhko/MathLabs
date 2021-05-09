@@ -1,0 +1,124 @@
+\documentclass{report}
+\usepackage[english, ukrainian]{babel}
+\usepackage{amsmath}
+\usepackage{systeme}
+\usepackage{graphicx}
+
+\graphicspath{ {./plots/} }
+
+\newcounter{relctr} %% <- counter for relations
+\everydisplay\expandafter{\the\everydisplay\setcounter{relctr}{0}} %% <- reset every eq
+\renewcommand*\therelctr{\alph{relctr}} %% <- label format
+
+\newcommand\labelrel[2]{%
+  \begingroup
+    \refstepcounter{relctr}%
+    \stackrel{\textnormal{(\alph{relctr})}}{\mathstrut{#1}}%
+    \originallabel{#2}%
+  \endgroup
+}
+\AtBeginDocument{\let\originallabel\label} %% <- store original definition
+
+\begin{document}
+
+\title{Математичний аналіз II\linebreakРозрахункова робота №2\\Варіант №3}
+\author{Божко Роман Вячеславович, TP-02}
+\date{\today}
+
+\maketitle
+
+\section{Завдання №6}
+\subsection{a)}
+\begin{equation}\label{eq1_a}\begin{split}
+	& y = 4-x^2, y=x^2 - 2x\\
+	& \text{Знайдемо точки перетину двох функцій: } x^2 - 2x = 4 - x^2, 2x^2 - 2x - 4 = 0, x^2 - x - 2 = 0\\
+	& x_{1, 2} = \frac{1 \pm \sqrt{1 + 4 \cdot 1 \cdot 2}}{2} = \frac{1\pm3}{2} = \begin{cases}2\\-1\end{cases}\\
+	& \text{Розрахуємо площу фігури обмежену функціями для вказаних меж інтегрування: }\\
+	& S = 2\int_{-1}^{2} (-x^2 + x + 2)dx = 2\left(-\frac{x^3}{3} + \frac{x^2}{2} +2x\right)\bigg|_{-1}^{2} = 2\left(-\frac{8}{3} + \frac{4}{2} + 4 - \left(\frac{1}{3} + \frac{1}{2} - 2\right)\right) =\\
+	& 2\left(-\frac{9}{3} + \frac{3}{2} + 6\right)= -6 + 3 + 12 = 9 \text{ од.}^2
+\end{split}\end{equation}
+
+\subsection{б)}
+\begin{equation}\label{eq1_b}\begin{split}
+	& \begin{cases}x = 4(t - \sin t)\\y = 4(1 - \cos t)\end{cases} y = 4, (0 < x < 8\pi, y \geq 4)\\
+	& \text{Визначимо межі для змінної } t: \begin{cases}x > 0\\x < 8\pi\end{cases} \begin{cases}4(t - \sin t) > 0\\4(t - \sin t) < 8\pi\end{cases} \begin{cases}t - \sin t > 0\\t - \sin t < 2\pi\end{cases} \begin{cases}t > 0\\t < 2\pi\end{cases}\\
+	& \text{Визначимо точки перетину прямої з умови з аркою циклоїди: }\\
+	& 4 = 4(1 - \cos t), 1 = 1 - \cos t, \cos t = 0 \to \frac{\pi}{2} \leq t \leq \frac{3\pi}{2}\\
+	& \text{Для того аби знайти потрібну площу необхідно від площі фігури з межами змінної } t\\
+	& \text{відняти площу прямокутника з тіми ж межами: } S = S_{\text{заг}} - S_{\text{прям}}\\
+	& S_{\text{заг}} = \int_{t_1}^{t_2}y(t)\cdot x'(t)dt = \int_{\frac{\pi}{2}}^{\frac{3\pi}{2}}4(1 - \cos t) \cdot 4(1 - \cos t) dt =  16\int_{\frac{\pi}{2}}^{\frac{3\pi}{2}}(1 - \cos t)^2 dt =\\
+	& 16\int_{\frac{\pi}{2}}^{\frac{3\pi}{2}} (1 - 2\cos t + \cos^2 t) dt = 16\int_{\frac{\pi}{2}}^{\frac{3\pi}{2}}\left(1 - 2\cos t + \frac{1 + \cos 2t}{2}\right) dt =\\
+	& \int_{\frac{\pi}{2}}^{\frac{3\pi}{2}} (24 - 32\cos t + 8\cos2t)dt = (24t - 32\sin t + 4\sin2t)\bigg|_{\frac{\pi}{2}}^{\frac{3\pi}{2}} =\\
+	& (36\pi + 32 + 0) - (12\pi - 32 + 0) = 24\pi + 64 \text{ од.}^2\\
+	& S_{\text{прям}} = \begin{vmatrix}t_1 = \frac{\pi}{2}\to x(t_1) = 4(\frac{\pi}{2} - 1)\\
+t_2 = \frac{3\pi}{2} \to x(t_2) = 4(\frac{3\pi}{2} - 1)\end{vmatrix} = \int_{t_1}^{t_2} 4dt = 4t|_{t_1}^{t_2} = 4 \cdot (4\pi + 8) = 16\pi + 32 \text{ од.}^2\\
+	& S =  S_{\text{заг}} - S_{\text{прям}} = 24\pi + 64 - 16\pi - 32 = 8\pi + 32 \text{ од.}^2 \approx 57.13 \text{ од.}^2
+\end{split}\end{equation}
+
+\subsection{в)}
+\begin{equation}\label{eq1_c}\begin{split}
+	& r = \sqrt{3}\cos\varphi, r = \sin\varphi, 0 \leq \varphi \leq \frac{\pi}{2}\\
+	& \text{Знайдемо промінь перетину окружностей: } \sin\varphi = \sqrt{3}\cos\varphi, \tg\varphi = \sqrt{3} \to \varphi = \frac{\pi}{3}\\
+	& \text{Загальну площу шукатемемо як суму площин двох секторів: } S = S_1 + S_2\\
+	& S_1 = \frac{1}{2} \int_{0}^{\frac{\pi}{3}} \sin^2 (\varphi) d\varphi = \frac{1}{4}\int_{0}^{\frac{\pi}{3}}(1 - \cos2\varphi)d\varphi = \frac{1}{4}(\varphi - \frac{1}{2}\sin2\varphi)\bigg|_{0}^{\frac{pi}{3}} =\\
+	& \frac{1}{4}\left(\frac{\pi}{3} - \frac{1}{2}\sin\frac{2\pi}{3} - 0\right) = \left(\frac{\pi}{12} - \frac{\sqrt{3}}{16}\right) \text{ од.}^2\\
+	& S_2 = \frac{1}{2}\int_{\frac{\pi}{3}}^{\frac{\pi}{2}} 3\cos^2(\varphi)d\varphi \labelrel={eq1_c:cos_subst} \frac{3}{2}\cdot\frac{1}{2}\int_{\frac{\pi}{3}}^{\frac{\pi}{2}}(1 + \cos2\varphi)d\varphi = \frac{3}{4}\left(\varphi + \frac{1}{2}\sin2\varphi\right)\bigg|_{\frac{\pi}{3}}^{\frac{\pi}{2}} =\\
+	&\frac{3}{4}\left(\frac{\pi}{2} + 0 - \left(\frac{\pi}{3} + \frac{1}{2}\sin\left(\frac{2\pi}{3}\right)\right)\right) = \frac{3}{4}\left(\frac{\pi}{6} - \frac{\sqrt{3}}{4}\right) \text{ од.}^2\\
+	& S = S_1 + S_2 = \frac{\pi}{12} - \frac{\sqrt{3}}{16} + \frac{3\pi}{24} - \frac{3\sqrt{3}}{16} = \left(\frac{5\pi}{24} - \frac{\sqrt{3}}{4}\right) \text{ од.}^2 \approx 0.22 \text{ од.}^2
+\end{split}\end{equation}
+В кроці~\eqref{eq1_c:cos_subst} використаємо формулу для пониження степеня: $\displaystyle \cos^2\alpha = \frac{(1 + \cos2\alpha)}{2}$.
+
+\section{Завдання №7}
+\subsection{a)}
+\begin{equation}\label{eq2_a}\begin{split}
+	& y = \sqrt{1 - x^2} + \arcsin(x), 0 \leq x \leq \frac{7}{9}\\
+	& \text{Довжину дуги в прямокутній системі координат обрахуємо за формулою: } L = \int_a^b\sqrt{1 + (y'(x))^2} dx\\
+	& \text{Підставимо знайдену похідну у формулу вище: } y'(x) = -\frac{2x}{2\sqrt{1-x^2}} + \frac{1}{\sqrt{1 - x^2}} = \frac{1 - x}{\sqrt{1 - x^2}}\\
+	& L = \int_0^{\frac{7}{9}} \sqrt{1 + \frac{(1-x)^2}{1-x^2}} dx = \int_0^{\frac{7}{9}} \sqrt{\frac{-2x + 2}{1-x^2}} dx = \sqrt{2}\int_0^{\frac{7}{9}} \sqrt{\frac{1 - x}{(1 - x)(1 + x)}} = \sqrt{2}\int_0^{\frac{7}{9}} \frac{dx}{\sqrt{1 + x}} =\\
+	& \sqrt{2}\int_0^{\frac{7}{9}} \frac{d(1 + x)}{\sqrt{1 + x}} = 2\sqrt{2}(\sqrt{1 + x})|_0^{\frac{7}{9}} = 2\sqrt{2}\left(\frac{4}{3} - \frac{3}{3}\right) = \frac{2\sqrt{2}}{3} \text{ од.}
+\end{split}\end{equation}
+
+\subsection{б)}
+\begin{equation}\label{eq2_b}\begin{split}
+	& \begin{cases}x = 4(\cos t + t\sin t)\\y = 4(\sin t - t\cos t)\end{cases} 0 \leq t \leq 2\\
+	& \text{Довжину дуги кривої AB, якщо її лінія задана в параметричному вигляді знайдемо за формулою: }\\
+	& L = \int_{t_1}^{t_2}\sqrt{(x'(t))^2 + (y'(t))^2}dt \text{ , де } t_1, t_2 \text{ - значення, котрі визначають точки А та В відповідно.}\\
+	& x'_{t} = \frac{d}{dt}(4\cos t + 4t\sin t) = -4\sin t + 4\sin t + 4t\cos t = 4t\cos t\\
+	& y'_{t} = \frac{d}{dt}(4\sin t - 4t\cos t) = 4\cos t - (4\cos t - 4t\sin t) = 4t\sin t\\
+	& (x'_t)^2 + (y'_t)^2 = 16t^2\cos^2 t + 16t^2\sin^2 t = 16t^2 (\cos^2 t + \sin^2 t) \labelrel={eq2_b:pyth_identity} 16t^2\\
+	& L = \int_0^2\sqrt{(4t)^2}dt = \begin{vmatrix}4t = u(t)\\ u(t) \geq 0 \text{ на }[0; 2]\end{vmatrix} = \int_0^2 4t dt = 2t^2|_0^2 = 8 \text{ од.}
+\end{split}\end{equation}
+В кроці~\eqref{eq2_b:pyth_identity} була використана основна тригонометрична тотожність: $\displaystyle \sin ^{2}t +\cos ^{2}t =1$
+
+\subsection{в)}
+\begin{equation}\label{eq2_c}\begin{split}
+	& r = \sqrt{2}e^{\phi}, -\frac{\pi}{2} \leq \phi \leq \frac{\pi}{2}\\
+	& \text{Довжину дуги кривої AB, якщо її лінія задана в полярній системі координат} \\
+	& \text{знайдемо за формулою: } L = \int_\alpha^\beta \sqrt{(r(\phi))^2 + (r'(\phi))^2} d\phi \text{ , де } \alpha, \beta \text{ - значення,}\\
+	& \text{котрі визначають точки А та В відповідно.}\\
+	& r'_{\phi} = \sqrt{2}\frac{d}{d\phi}(e^{\phi}) = \sqrt{2}e^{\phi}, (r(\phi))^2 + (r'(\phi))^2 = 2e^{2\phi} + 2e^{2\phi} = 4e^{2\phi}\\
+	& L = \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \sqrt{(2e^\phi)^2}d\phi = \begin{vmatrix}2e^\phi = u(\phi)\\ u(\phi) \geq 0 \text{ на } [-\frac{\pi}{2}; \frac{\pi}{2}]\end{vmatrix} = \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} 2e^\phi d\phi = 2e^\phi|_{-\frac{\pi}{2}}^{\frac{\pi}{2}} = 2(e^{\frac{\pi}{2}} - e^{-\frac{\pi}{2}}) \text{ од.}\\
+\end{split}\end{equation}
+
+\section{Завдання №8}
+\begin{equation}\label{eq4}\begin{split}
+	& \frac{x^2}{9} + \frac{y^2}{4} - z^2 = 1, \frac{x^2}{9} + \frac{y^2}{4} = 1 + z^2, 0 \leq z \leq 3\\
+	& \text{Поперечним перетином є еліпс з центром в початку координат.}\\
+	& \text{Рівняння еліпса: }\frac{x^2}{(3\sqrt{1 + z^2})^2} + \frac{y^2}{(2\sqrt{1 + z^2})^2} = 1\\
+	& \text{Виразимо півосі еліпса: } a = 3\sqrt{1 + z^2}, b = 2\sqrt{1 + z^2}\\
+	& \text{Знайдемо площу даного еліпса: } S(z) = \pi ab = 6\pi(1 + z^2)\\
+	& \text{Знайдемо об'єм обертання даної фігури, проінтегрувавши по площі: }\\
+	& V = \int_0^3 S(z)dz = 6\pi\int_0^3(1 + z^2)dz = 6\pi\left(z + \frac{z^3}{3}\right)\bigg|_0^3 = 6\pi(3 + 9 - 0) = 72\pi \text{ од.}^3\\
+\end{split}\end{equation}
+\includegraphics{task8.jpg}
+
+\section{Завдання №9}
+\begin{equation}\label{eq4}\begin{split}
+	& y=3\sin x, y = \sin x, 0 \leq x \leq \pi, V = \pi\int_a^{b}f^{2}(x)dx\\
+	& V = V_1 - V_2 = \pi\int_{0}^{\pi}9\sin^2 xdx - \pi\int_{0}^{\pi}\sin^2 xdx \labelrel={eq4:sin_subst}\\
+	& \frac{9\pi}{2}\int_{0}^{\pi}(1 - \cos2x)dx - \frac{\pi}{2}\int_{0}^{\pi}(1 - \cos2x)dx =\\
+	& \frac{9\pi}{2}\left(x - \frac{1}{2}\sin2x\right)\bigg|_{0}^{\pi} - \frac{\pi}{2}\left(x - \frac{1}{2}\sin2x\right)\bigg|_{0}^{\pi} = 4\pi\left(x - \frac{1}{2}\sin2x\right)\bigg|_{0}^{\pi} = 4\pi(\pi - 0) = 4\pi^{2} \text{ од.}^3
+\end{split}\end{equation}
+В кроці~\eqref{eq4:sin_subst} використаємо формулу для пониження степеня: $\displaystyle \sin^2\alpha = \frac{(1 - \cos2\alpha)}{2}$.
+\includegraphics{task9.jpg}
+\end{document}
